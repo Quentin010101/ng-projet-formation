@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { CategoryComponent } from './category/category.component';
+import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { TemplateComponent } from './template/template.component';
 
 const pagesRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'category', component: CategoryComponent},
-  {path: 'category/:id', component: CategoryDetailComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', component: TemplateComponent, children: [
+    {path: 'home', component: HomeComponent},
+    {path: 'category', component: CategoryComponent},
+    {path: 'category/:id', component: CategoryDetailComponent},
+    {path: 'contact', component: ContactComponent},
+  ]},
 ]
 
 @NgModule({
