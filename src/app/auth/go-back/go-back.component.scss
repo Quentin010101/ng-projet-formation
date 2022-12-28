@@ -1,0 +1,11 @@
+.component-goBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.2rem;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

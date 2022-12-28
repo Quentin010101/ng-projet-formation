@@ -8,7 +8,8 @@ import { PageNotFoundComponent } from './error/page-not-found/page-not-found.com
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     DashboardModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

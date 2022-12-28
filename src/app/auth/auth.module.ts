@@ -6,12 +6,15 @@ import { AuthNavigationModule } from './auth-navigation.module';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import {  AuthGuardService } from './auth-guard.service';
+import { MatIconModule } from '@angular/material/icon'
+import { GoBackComponent } from './go-back/go-back.component';
 
 
 
 
 @NgModule({
   declarations: [
+    GoBackComponent,
     LoginComponent,
     SignInComponent,
   ],
@@ -19,6 +22,11 @@ import {  AuthGuardService } from './auth-guard.service';
     CommonModule,
     AuthNavigationModule,
     FormsModule,
+    MatIconModule
+  ],
+  exports: [
+    MatIconModule
+
   ],
   providers: [
     AuthService,

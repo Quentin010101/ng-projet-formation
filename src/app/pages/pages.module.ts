@@ -23,6 +23,7 @@ import { PrimaryNavigationBarComponent } from '../global/navigation/primary-navi
     TemplateComponent
   ],
   imports: [
+    CommonModule,
     PagesRoutingModule,
   ]
 })

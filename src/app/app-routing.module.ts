@@ -6,8 +6,6 @@ import { PageNotFoundComponent } from "./error/page-not-found/page-not-found.com
 
 
 const appRoutes: Routes = [
-  // {path: 'login', component: LoginComponent},
-  // {path: 'signin', component: SignInComponent},
   {path: '**', component: PageNotFoundComponent},
 ]
 

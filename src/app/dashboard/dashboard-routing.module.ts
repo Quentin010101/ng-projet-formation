@@ -13,6 +13,9 @@ const dashboardRoutes: Routes = [
   {
     path: 'dashboard',
     canActivate: [AuthGuardService],
+    data: {
+      role: 'ROLE_USER'
+    },
     component: DashboardTemplateComponent,
     children: [
 

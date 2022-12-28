@@ -5,34 +5,37 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  pseudo!: string;
+  password!: string;
+  message!: string;
 
-  pseudo!: string
-  password!: string
-  message!: string
+  constructor(private _authservice: AuthService, private router: Router) {}
 
-  constructor(private _authservice: AuthService, private router: Router){}
+  onSubmit() {
+    this._authservice.authenticate(this.pseudo, this.password).subscribe({
+      next: () => {
+        this.setMessage();
+        if (this._authservice.isLoggedIn) {
+          // verifie si l'utilisateur à été redirigé sur login
+          let redirect = this._authservice.urlLoged
+            ? this._authservice.urlLoged
+            : '/home';
+          this.router.navigate([redirect]);
+        } else {
+          this.password = '';
+        }
+      },
+      error: (error) => console.log(error),
+    });
+  }
 
-onSubmit(){
-  this._authservice.authenticate(this.pseudo, this.password).subscribe({
-    next: () => {
-      this.setMessage()
-      if(this._authservice.isLogedIn){
-        // verifie si l'utilisateur à été redirigé sur login
-        let redirect = this._authservice.urlLoged ? this._authservice.urlLoged : '/home'
-        this.router.navigate([redirect])
-      } else {
-        this.password = ''
-      }
-    },
-    error: error => console.log(error)
-  })
-}
-
-setMessage(){
-  this.message = this._authservice.isLogedIn ? 'You are aleady loged in' : 'You are not loged in'
-}
+  setMessage() {
+    this.message = this._authservice.isLoggedIn
+      ? 'You are aleady loged in'
+      : 'You are not loged in';
+  }
 
 }
