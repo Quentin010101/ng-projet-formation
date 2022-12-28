@@ -1,7 +1,53 @@
   <div class="page-center-element">
-    <form  >
-      <app-input [type]="'text'" [label]="'Pseudo'" [placeholder]="'Enter your pseudo'"></app-input>
-      <app-input [type]="'password'" [label]="'Password'" [placeholder]="'Enter your password'"></app-input>
-      <app-input-submit [value]="'Send'"></app-input-submit>
+    <div>
+      <p>{{ message }}</p>
+    </div>
+    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-component">
+        <label for="pseudo">Pseudo</label>
+        <input
+        type="text"
+        name="pseudo"
+        [(ngModel)]="pseudo"
+        #userpseudo="ngModel"
+        pattern="[a-zA-Z0-9]{1,20}"
+        maxlength="20"
+        required
+        placeholder="Enter yout pseudo"
+        >
+        <div  class='form-error-component'>
+          <div *ngIf="userpseudo.invalid && (userpseudo.dirty)">
+            <div *ngIf="userpseudo.errors?.['pattern']">
+              <p>* special caracter are not allowed</p>
+            </div>
+            <div *ngIf="userpseudo.errors?.['required']">
+              <p>* this field is required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-component">
+        <label for="password">Password</label>
+        <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        #userpassword="ngModel"
+        maxlength="20"
+        required
+        placeholder="Enter yout password"
+        >
+        <div  class='form-error-component'>
+          <div *ngIf="userpassword.invalid && (userpassword.dirty)" class='form-error-component'>
+            <div *ngIf="userpassword.errors?.['required']">
+             <p>* this field is required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type="submit" value="Send">
+      </div>
     </form>
+    <a routerLink="/home" >go back</a>
   </div>

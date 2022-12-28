@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { LoginComponent } from './login/login.component';
 import { AuthNavigationModule } from './auth-navigation.module';
-import { FormModule } from '../global/input-element/form.module';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import {  AuthGuardService } from './auth-guard.service';
+
 
 
 
@@ -15,8 +18,13 @@ import { FormModule } from '../global/input-element/form.module';
   imports: [
     CommonModule,
     AuthNavigationModule,
-    FormModule
+    FormsModule,
   ],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ]
+
 
 })
 export class AuthModule { }

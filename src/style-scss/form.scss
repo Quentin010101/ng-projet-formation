@@ -1,0 +1,21 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-component{
+  display: flex;
+  flex-direction: column;
+
+
+  .form-error-component{
+    min-height: 20px;
+
+    p{
+      color: red;
+      font-style: italic;
+      font-size: 0.8rem;
+      margin: 0;
+    }
+  }
+}

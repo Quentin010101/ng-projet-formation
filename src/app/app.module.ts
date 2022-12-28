@@ -7,6 +7,7 @@ import { PagesModule } from './pages/pages.module';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AuthModule,
     PagesModule,
     DashboardModule,
