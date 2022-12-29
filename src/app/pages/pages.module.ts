@@ -7,6 +7,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { ContactComponent } from './contact/contact.component';
 import { TemplateComponent } from './template/template.component';
+import { GlobalModule } from '../global/global.module';
 import { PrimaryNavigationBarComponent } from '../global/navigation/primary-navigation-bar/primary-navigation-bar.component';
 
 
@@ -14,15 +15,15 @@ import { PrimaryNavigationBarComponent } from '../global/navigation/primary-navi
 
 @NgModule({
   declarations: [
+    TemplateComponent,
     HomeComponent,
     CategoryComponent,
     FooterComponent,
     CategoryDetailComponent,
-    PrimaryNavigationBarComponent,
     ContactComponent,
-    TemplateComponent
   ],
   imports: [
+    GlobalModule,
     CommonModule,
     PagesRoutingModule,
   ]

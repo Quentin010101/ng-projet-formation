@@ -7,12 +7,15 @@ import { tap, delay } from "rxjs/operators";
 export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false)
-  role!: string
+  private role = new BehaviorSubject<string>('')
 
   urlLoged!: string
 
+  get userRole (){
+    return this.role
+  }
   get isLoggedIn() {
-    return this.loggedIn.asObservable()
+    return this.loggedIn
   }
 
   authenticate( pseudo: string, password : string): Observable<boolean>{
@@ -22,30 +25,29 @@ export class AuthService {
     let isLogedAsAdmin = (admin.pseudo === pseudo && admin.password === password)
     let isLogedAsUser = (user.pseudo === pseudo && user.password === password)
 
-    let isLoged = false
+    let isLogged = false
+    let role = ''
 
     if(isLogedAsAdmin){
-      isLoged = true
-      this.role = 'ROLE_ADMIN'
+      isLogged = true
+      role = 'ROLE_ADMIN'
     }
     if(isLogedAsUser){
-      isLoged = true
-      this.role = 'ROLE_USER'
+      isLogged = true
+      role = 'ROLE_USER'
     }
 
     return of(true).pipe(delay(1000), tap(()=> {
-      this.loggedIn.next(isLoged)
+      this.loggedIn.next(isLogged)
+      this.role.next(role)
     }))
 
   }
   logout(){
     this.loggedIn.next(false)
-    this.role = ''
+    this.role.next('')
   }
 
-  getRole(){
-    return this.role
-  }
 
 
 }

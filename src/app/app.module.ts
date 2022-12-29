@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { GlobalModule } from './global/global.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     BrowserModule,
+    GlobalModule,
     FormsModule,
     AuthModule,
     PagesModule,
