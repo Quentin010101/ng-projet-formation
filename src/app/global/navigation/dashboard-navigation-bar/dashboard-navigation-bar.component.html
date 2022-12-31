@@ -1,23 +1,53 @@
 
-<div>
+<div class="navigation-dashboard">
   <nav>
     <ul>
       <li>
-        <a routerLink="feed">Feed</a>
+        <a routerLink="edit">
+            <mat-icon>add</mat-icon>
+            <div>New image</div>
+          </a>
+      </li>
+      <li >
+        <a navigationHover routerLinkActive="active" routerLink="feed">
+            <mat-icon>home</mat-icon>
+            <div>Feed</div>
+          </a>
       </li>
       <li>
-        <a routerLink="edit">New image</a>
+        <a navigationHover routerLinkActive="active" routerLink="profile">
+            <mat-icon>person</mat-icon>
+            <div>Profile</div>
+          </a>
       </li>
       <li>
-        <a routerLink="profile">Profile</a>
+        <a navigationHover routerLinkActive="active" routerLink="message">
+            <mat-icon> mail</mat-icon>
+            <div>Message</div>
+          </a>
       </li>
       <li>
-        <a routerLink="settings">Settings</a>
+        <a navigationHover routerLinkActive="active" routerLink="settings">
+            <mat-icon> settings</mat-icon>
+            <div>Settings</div>
+          </a>
       </li>
       <li>
-        <a routerLink="privacy">Privacy</a>
+        <a navigationHover routerLinkActive="active" routerLink="privacy">
+            <mat-icon>lock</mat-icon>
+            <div>Privacy</div>
+          </a>
       </li>
     </ul>
   </nav>
+  <div class="go-back"  >
+    <a routerLink="/home" appGoBack>
+      <mat-icon>chevron_left</mat-icon>
+      <span>
+        Go back
+      </span>
+    </a>
+  </div>
+  <button appIconTransition class="log" (click)="logOut()"><mat-icon>power_settings_new</mat-icon></button>
 </div>
 

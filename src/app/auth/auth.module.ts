@@ -8,6 +8,8 @@ import { AuthService } from './auth.service';
 import {  AuthGuardService } from './auth-guard.service';
 import { MatIconModule } from '@angular/material/icon'
 import { GoBackComponent } from './go-back/go-back.component';
+import { GlobalModule } from '../global/global.module';
+import { GoBackDirective } from '../directive/go-back.directive';
 
 
 
@@ -15,14 +17,15 @@ import { GoBackComponent } from './go-back/go-back.component';
 @NgModule({
   declarations: [
     GoBackComponent,
-    LoginComponent,
     SignInComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
-    AuthNavigationModule,
+    GlobalModule,
     FormsModule,
-    MatIconModule
+    AuthNavigationModule,
+    MatIconModule,
   ],
   exports: [
     MatIconModule

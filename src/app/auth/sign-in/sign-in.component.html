@@ -1,5 +1,94 @@
 <div class="page-center-element">
-  <form>
-  </form>
+  <div class="form-container">
+    <h2>Sign in</h2>
+    <form class="form" #signInForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-component">
+        <label for="pseudo">Pseudo</label>
+        <input
+        type="text"
+        name="pseudo"
+        id="pseudo"
+        placeholder="Choose your pseudo"
+        #upseudo="ngModel"
+        [(ngModel)]="pseudo"
+        required
+        pattern="[a-zA-Z0-9]{1,20}"
+        maxlength="20"
+        >
+        <div  class='form-error-component'>
+          <div *ngIf="upseudo.invalid && (upseudo.dirty)">
+            <div *ngIf="upseudo.errors?.['pattern']">
+              <p>* special caracter are not allowed</p>
+            </div>
+            <div *ngIf="upseudo.errors?.['required']">
+              <p>* this field is required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-component">
+        <label for="email">Email</label>
+        <input
+        type="email"
+        name="email"
+        id="email"
+        [(ngModel)]="email"
+        #uemail="ngModel"
+        email="true"
+        placeholder="Enter your email"
+        required
+        >
+         <div  class='form-error-component'>
+          <div *ngIf="uemail.invalid && (uemail.dirty)">
+            <div *ngIf="uemail.errors?.['email']">
+              <p>* this email is not valid</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-component">
+        <label for="password">Password</label>
+        <input
+        type="password"
+        name="password"
+        id="password"
+        [(ngModel)]="password"
+        #upassword="ngModel"
+        placeholder="Choose a password"
+        required
+        >
+        <div  class='form-error-component'>
+          <div *ngIf="upassword.invalid && (upassword.dirty)">
+            <div *ngIf="upassword.errors?.['required']">
+              <p>* special caracter are not allowed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-component">
+        <label for="passwordC">Password confirmation</label>
+        <input
+        type="password"
+        name="passwordC"
+        id="passwordC"
+        placeholder="Confirm your password"
+        >
+        <div  class='form-error-component'>
+          <div *ngIf="upassword.invalid && (upassword.dirty)">
+            <div *ngIf="upassword.errors?.['required']">
+              <p>* special caracter are not allowed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button-check [value]="'send'" [disabled]="!signInForm.valid"></button-check>
+      <div class="link">
+        <a routerLink="/login">Already have an account?</a>
+      </div>
+    </form>
+    <div class="form-message">
+      <p class="errors">{{ message }}</p>
+    </div>
+  </div>
 </div>
-  <app-go-back></app-go-back>
+<app-go-back></app-go-back>

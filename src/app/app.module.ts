@@ -11,6 +11,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { GlobalModule } from './global/global.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemDataService } from './backend/in-memory-data.service';
+import { IconTransitionDirective } from './directive/icon-transition.directive';
+import { NavigationHoverDirective } from './directive/navigation-hover.directive';
 
 @NgModule({
   declarations: [
@@ -26,9 +31,13 @@ import { GlobalModule } from './global/global.module';
     DashboardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot( InMemDataService, { dataEncapsulation: false})
+
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

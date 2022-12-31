@@ -1,5 +1,5 @@
 <header>
-  <div>
+  <div class="logo">
     Logo
   </div>
   <nav>
@@ -9,23 +9,23 @@
       <li><a routerLink="/contact">Contact</a></li>
     </ul>
   </nav>
-  <div>
+  <div class="log-container">
     <div *ngIf="!(isLoggedIn$ | async)">
       <div>
-        <a routerLink="login">Login</a>
+        <a  routerLink="login">Login</a>
       </div>
       <div>
         <a routerLink="signin">Sign in</a>
       </div>
     </div>
     <div *ngIf="isLoggedIn$ | async">
-      <div *ngIf="(role$ | async) === 'ROLE_USER'">
-        <a routerLink="dashboard">dashboard</a>
+      <div  appIconTransition *ngIf="(role$ | async) === 'ROLE_USER'">
+        <a routerLink="dashboard"><mat-icon>account_circle</mat-icon></a>
       </div>
-      <div *ngIf="(role$ | async) === 'ROLE_ADMIN'">
-        <a routerLink="admin">dashboard Admin</a>
+      <div appIconTransition *ngIf="(role$ | async) === 'ROLE_ADMIN'">
+        <a  routerLink="admin"><mat-icon >account_circle</mat-icon></a>
       </div>
-      <button (click)="logOut()">Log Out</button>
+      <button appIconTransition class="log" (click)="logOut()"><mat-icon>power_settings_new</mat-icon></button>
     </div>
   </div>
 </header>

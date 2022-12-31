@@ -4,27 +4,40 @@ import { AuthGuardService } from '../auth/auth-guard.service';
 import { DashboardTemplateComponent } from './user/dashboard-template/dashboard-template.component';
 import { ImageFeedComponent } from './user/image-feed/image-feed.component';
 import { ImageUpdateComponent } from './user/image-update/image-update.component';
+import { MessageComponent } from './user/message/message.component';
 import { PrivacyComponent } from './user/privacy/privacy.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
+import { DashboardAdminTemplateComponent } from './admin/dashboard-admin-template/dashboard-admin-template.component';
+import { MessageComponent as MessageAdminComponent } from './admin/message/message.component';
 
 const dashboardRoutes: Routes = [
   { path: 'dashboard', redirectTo: 'dashboard/feed', pathMatch: 'full' },
   {
     path: 'dashboard',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     data: {
-      role: 'ROLE_USER'
+      role: 'ROLE_USER',
     },
     component: DashboardTemplateComponent,
     children: [
-
       { path: 'feed', component: ImageFeedComponent },
       { path: 'edit', component: ImageUpdateComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'privacy', component: PrivacyComponent },
       { path: 'profile', component: ProfileComponent },
-
+      { path: 'message', component: MessageComponent },
+    ],
+  },
+  {
+    path: 'admin',
+    component: DashboardAdminTemplateComponent,
+    canActivate: [AuthGuardService],
+    data: {
+      role: 'ROLE_ADMIN',
+    },
+    children: [
+      { path: 'message', component: MessageAdminComponent }
     ],
   },
 ];

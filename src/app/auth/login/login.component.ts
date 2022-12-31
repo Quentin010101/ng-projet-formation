@@ -18,7 +18,7 @@ export class LoginComponent {
     this._authservice.authenticate(this.pseudo, this.password).subscribe({
       next: () => {
         this.setMessage();
-        if (this._authservice.isLoggedIn) {
+        if (this._authservice.isLoggedIn.value) {
           // verifie si l'utilisateur à été redirigé sur login
           let redirect = this._authservice.urlLoged
             ? this._authservice.urlLoged
@@ -33,9 +33,9 @@ export class LoginComponent {
   }
 
   setMessage() {
-    this.message = this._authservice.isLoggedIn
+    this.message = this._authservice.isLoggedIn.value
       ? 'You are aleady loged in'
-      : 'You are not loged in';
+      : 'Your credentials are not correct';
   }
 
 }

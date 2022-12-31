@@ -1,12 +1,33 @@
+@import 'color.scss';
+
 .form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4rem 2rem
+  justify-content: center;
+  width: 100%;
 }
 .form-component{
   display: flex;
   flex-direction: column;
+  padding: 0.4rem 0;
+  width: 100%;
+
+  label{
+    font-weight: 500;
+    color: $gray-600;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"]{
+    padding: 0.6rem 0.6rem;
+    margin: 0.3rem 0;
+    border-radius: 0.25rem;
+    border: solid 1px $gray-800;
+
+    &:focus{
+      outline: solid 1px $gray-600;
+    }
+  }
 
 
   .form-error-component{
@@ -19,4 +40,11 @@
       margin: 0;
     }
   }
+}
+
+button.log{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: max-content;
 }

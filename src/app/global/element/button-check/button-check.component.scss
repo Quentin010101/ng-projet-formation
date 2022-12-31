@@ -1,0 +1,45 @@
+@import 'color.scss';
+
+button{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background-color: transparent;
+  border: 1px solid $gray-600;
+  color: $gray-600;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: color 0.3s ease, border 0.3s ease;
+
+&:hover{
+  border: 1px solid $gray-900;
+  color: $gray-900;
+}
+
+  mat-icon{
+    font-size: 18px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    height: fit-content;
+    &.icon-check{
+      display: block;
+    }
+    &.icon-close{
+      display: none;
+    }
+  }
+
+  &:disabled{
+    color: $gray-400;
+    border: 1px solid $gray-400;
+
+    mat-icon.icon-check{
+      display: none;
+    }
+    mat-icon.icon-close{
+      display: block;
+    }
+
+  }
+}

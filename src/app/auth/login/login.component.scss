@@ -1,0 +1,53 @@
+@import 'color.scss';
+
+.page-center-element{
+  background-color: white;
+}
+.form-container{
+  min-width: 500px;
+  padding: 4rem 4rem;
+  border-radius: 0.5rem;
+}
+.form-message{
+  text-align: center;
+  color: red;
+  height: 24px;
+  padding: 1rem;
+  p{
+    margin: 0;
+  }
+}
+.link{
+  margin: 1.5rem 0 1rem auto;
+  a{
+    color: $gray-400;
+    transition: color 0.3s ease;
+
+    &:hover{
+      color: $gray-700;
+    }
+  }
+}
+@media (max-width: 1000px){
+  .form-container{
+    min-width: 500px;
+    padding: 3rem 3rem;
+
+  }
+}
+@media (max-width: 800px){
+  .form-container{
+    min-width: 400px;
+    padding: 2rem 2rem;
+    box-shadow: none;
+  }
+}
+@media (max-width: 500px){
+
+  .form-container{
+    padding: none;
+    box-shadow: none;
+
+    min-width: 300px;
+  }
+}

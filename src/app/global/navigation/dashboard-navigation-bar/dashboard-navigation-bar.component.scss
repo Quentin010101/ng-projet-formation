@@ -1,0 +1,74 @@
+@import 'color.scss';
+
+.navigation-dashboard{
+  width: 220px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows:  15fr 2fr 2fr;
+  border-right: 1px solid $gray-500;
+
+  .go-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a{
+      display: flex;
+      align-items: center;
+    }
+  }
+  nav{
+    width: inherit;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    li, ul{
+      width: 100%;
+    }
+    a{
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+
+      &.active{
+        background-color: $gray-500;
+        color: white;
+        mat-icon{
+          color: white;
+        }
+      }
+
+      &.link-hover:not(.active){
+        background-color: $gray-100;
+      }
+
+      mat-icon{
+        font-size: 22px;
+        color: $gray-600;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 800px){
+.navigation-dashboard{
+  width: fit-content;
+  .go-back span{
+    display: none;
+  }
+  nav li{
+    a{
+      padding: 1.5rem 0.8rem;
+
+    }
+    div{
+      display: none,
+    }
+  }
+}
+}
