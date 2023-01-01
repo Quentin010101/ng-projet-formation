@@ -1,3 +1,5 @@
+@import 'color.scss';
+
 header{
   height: 60px;
   padding: 0 4rem;
@@ -39,5 +41,9 @@ header{
       height: inherit;
     }
 
+  }
+
+  .account-icon{
+    color: $gray-500;
   }
 }

@@ -20,7 +20,7 @@
     </div>
     <div *ngIf="isLoggedIn$ | async">
       <div  appIconTransition *ngIf="(role$ | async) === 'ROLE_USER'">
-        <a routerLink="dashboard"><mat-icon>account_circle</mat-icon></a>
+        <a routerLink="dashboard"><mat-icon class="account-icon">account_circle</mat-icon></a>
       </div>
       <div appIconTransition *ngIf="(role$ | async) === 'ROLE_ADMIN'">
         <a  routerLink="admin"><mat-icon >account_circle</mat-icon></a>

@@ -5,7 +5,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows:  15fr 2fr 2fr;
-  border-right: 1px solid $gray-500;
+  border-right: 1px solid $gray-100;
 
   .go-back{
     display: flex;
@@ -28,6 +28,7 @@
       width: 100%;
     }
     a{
+      position: relative;
       padding: 1.5rem 2rem;
       display: flex;
       flex-direction: row;
@@ -35,8 +36,9 @@
       gap: 1rem;
 
       &.active{
-        background-color: $gray-500;
+        background-color: $gray-600;
         color: white;
+
         mat-icon{
           color: white;
         }
@@ -55,7 +57,8 @@
   }
 }
 
-@media (max-width: 800px){
+
+@media (max-width: 900px){
 .navigation-dashboard{
   width: fit-content;
   .go-back span{
@@ -63,7 +66,14 @@
   }
   nav li{
     a{
-      padding: 1.5rem 0.8rem;
+      padding: 1rem 0.8rem;
+
+      &.active{
+        color: white;
+        mat-icon{
+          color: white;
+        }
+      }
 
     }
     div{

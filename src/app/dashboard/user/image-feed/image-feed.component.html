@@ -1,1 +1,8 @@
-<p>image-feed works!</p>
+<div class="images-container"  @router>
+  <div *ngFor="let image of userImages" class="card">
+    <div class="image-container">
+      <img [src]="image.url" alt="{{ image.title }}">
+    </div>
+    <h3>{{ image.title }}</h3>
+  </div>
+</div>

@@ -10,6 +10,8 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { DashboardAdminTemplateComponent } from './admin/dashboard-admin-template/dashboard-admin-template.component';
 import { MessageComponent as MessageAdminComponent } from './admin/message/message.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 const dashboardRoutes: Routes = [
   { path: 'dashboard', redirectTo: 'dashboard/feed', pathMatch: 'full' },
@@ -21,8 +23,8 @@ const dashboardRoutes: Routes = [
     },
     component: DashboardTemplateComponent,
     children: [
-      { path: 'feed', component: ImageFeedComponent },
-      { path: 'edit', component: ImageUpdateComponent },
+      { path: 'feed', component: ImageFeedComponent, data: { animation: 'page1'} },
+      { path: 'edit', component: ImageUpdateComponent, data: { animation: 'page2'} },
       { path: 'settings', component: SettingsComponent },
       { path: 'privacy', component: PrivacyComponent },
       { path: 'profile', component: ProfileComponent },
@@ -43,7 +45,10 @@ const dashboardRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(dashboardRoutes)],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forChild(dashboardRoutes)],
   exports: [],
 })
 export class DashboardUserRoutingModule {}

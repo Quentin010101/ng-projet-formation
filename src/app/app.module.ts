@@ -14,8 +14,7 @@ import { GlobalModule } from './global/global.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemDataService } from './backend/in-memory-data.service';
-import { IconTransitionDirective } from './directive/icon-transition.directive';
-import { NavigationHoverDirective } from './directive/navigation-hover.directive';
+
 
 @NgModule({
   declarations: [

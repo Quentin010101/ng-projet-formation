@@ -4,13 +4,15 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[appGoBack]'
 })
 export class GoBackDirective {
-  element!: HTMLElement
+  elementIcon!: HTMLElement
+  elementSpan!: HTMLElement
 
   constructor(private elementRef: ElementRef) {
    }
 
    ngOnInit(){
-    this.element = this.elementRef.nativeElement.querySelector('mat-icon')
+    this.elementIcon = this.elementRef.nativeElement.querySelector('mat-icon')
+    this.elementSpan = this.elementRef.nativeElement.querySelector('span')
    }
 
   @HostListener('mouseenter') onMouseEnter(): void{
@@ -21,12 +23,12 @@ export class GoBackDirective {
   }
 
   private translateLeft(){
-    this.element.style.transform = 'translateX(-0.3rem)';
-    this.element.style.transition = 'transform 0.2s ease-in';
+    this.elementIcon.style.transform = 'translateX(-0.3rem)';
+    this.elementIcon.style.transition = 'transform 0.2s ease-in';
+
 
   }
   private translateRight(){
-    this.element.style.transform = 'translateX(0)';
-
+    this.elementIcon.style.transform = 'translateX(0)';
   }
 }
