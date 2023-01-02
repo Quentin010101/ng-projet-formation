@@ -1,4 +1,10 @@
 .dashboard-container{
   display: flex;
   flex-direction: row;
+
+  .routlet-container{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
 }

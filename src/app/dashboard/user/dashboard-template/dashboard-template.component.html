@@ -1,7 +1,7 @@
-<div class="dashboard-container">
+<div class="dashboard-container"  >
   <app-dashboard-navigation-bar></app-dashboard-navigation-bar>
-  <div>
-    <router-outlet></router-outlet>
+  <div class="routlet-container" [@animationRoute]="prepare(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>
 

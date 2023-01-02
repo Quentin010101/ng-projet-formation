@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Animation } from 'src/app/animation/animation-route';
+import { Component, OnInit } from '@angular/core';
 import { IMAGE } from 'src/app/backend/image-mock';
 import { Image } from 'src/app/model/image';
 
@@ -8,11 +7,8 @@ import { Image } from 'src/app/model/image';
   selector: 'image-feed-add',
   templateUrl: './image-feed.component.html',
   styleUrls: ['./image-feed.component.scss'],
-  animations: [
-    Animation.animateTrigger
-  ]
 })
-export class ImageFeedComponent {
+export class ImageFeedComponent implements OnInit{
   userImages!: Image[]
 
   ngOnInit(){

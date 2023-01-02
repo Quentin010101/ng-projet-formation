@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 
 const dashboardRoutes: Routes = [
-  { path: 'dashboard', redirectTo: 'dashboard/feed', pathMatch: 'full' },
   {
     path: 'dashboard',
     // canActivate: [AuthGuardService],
@@ -23,8 +22,9 @@ const dashboardRoutes: Routes = [
     },
     component: DashboardTemplateComponent,
     children: [
-      { path: 'feed', component: ImageFeedComponent, data: { animation: 'page1'} },
-      { path: 'edit', component: ImageUpdateComponent, data: { animation: 'page2'} },
+      { path: '' , redirectTo: 'feed', pathMatch: 'full'},
+      { path: 'feed', component: ImageFeedComponent },
+      { path: 'edit', component: ImageUpdateComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'privacy', component: PrivacyComponent },
       { path: 'profile', component: ProfileComponent },

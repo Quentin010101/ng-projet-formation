@@ -23,16 +23,16 @@ import { InMemDataService } from './backend/in-memory-data.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     GlobalModule,
     FormsModule,
     AuthModule,
     PagesModule,
     DashboardModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot( InMemDataService, { dataEncapsulation: false})
+    HttpClientInMemoryWebApiModule.forRoot( InMemDataService, { dataEncapsulation: false}),
 
   ],
   providers: [
