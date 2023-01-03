@@ -14,6 +14,8 @@ import { GlobalModule } from './global/global.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemDataService } from './backend/in-memory-data.service';
+import { UserService } from './user.service';
+import { ProfileModule } from './dashboard/user/profile/profile.module';
 
 
 @NgModule({
@@ -30,12 +32,14 @@ import { InMemDataService } from './backend/in-memory-data.service';
     PagesModule,
     DashboardModule,
     AppRoutingModule,
+    ProfileModule,
     MatIconModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot( InMemDataService, { dataEncapsulation: false}),
 
   ],
   providers: [
+    UserService
   ],
   bootstrap: [AppComponent]
 })

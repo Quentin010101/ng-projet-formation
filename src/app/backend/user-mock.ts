@@ -13,7 +13,8 @@ export const USER: User[] = [
     pseudo: 'user',
     password: 'user',
     email: 'user@gmail.com',
-    role: 'ROLE_USER'
+    role: 'ROLE_USER',
+    avatar: '/assets/avatar/avatar1.jpg'
   },
   {
     id: 3,

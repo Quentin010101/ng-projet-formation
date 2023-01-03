@@ -25,9 +25,11 @@ export class AuthService {
   authenticate( pseudo: string, password : string): Observable<boolean>{
 
     this.http.get<User[]>(`${this.url}?pseudo=${pseudo}`).subscribe((data)=>{
-      if(data[0] && data[0].password === password){
+      let dataUser = data[0]
+      if(dataUser && dataUser.password === password){
         this.loggedIn.next(true)
-        this.role.next(data[0].role)
+        this.role.next(dataUser.role)
+        localStorage.setItem('id', dataUser.id.toString())
       } else{
         this.loggedIn.next(false)
         this.role.next('')
@@ -39,6 +41,7 @@ export class AuthService {
 
   }
   logout(){
+    localStorage.removeItem('id')
     this.loggedIn.next(false)
     this.role.next('')
   }

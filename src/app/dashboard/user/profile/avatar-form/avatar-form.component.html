@@ -1,0 +1,12 @@
+<form #ngFormAvatar="ngForm" (ngSubmit)="onSubmitAvatar()">
+  <div class="avatar-container">
+    <img [src]="user.avatar" alt="user avatar">
+    <div>
+      <label for="avatar"><mat-icon>add</mat-icon></label>
+      <input id="avatar" type="file" [(ngModel)]="user.avatar" #ngAvatar="ngModel" name="avatar" (change)="onFileSelected($event)">
+    </div>
+  </div>
+  <div>
+    <button type="submit">Valid</button>
+  </div>
+</form>

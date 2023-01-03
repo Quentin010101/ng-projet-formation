@@ -5,7 +5,6 @@ import { PrimaryNavigationBarComponent } from './navigation/primary-navigation-b
 import { PagesRoutingModule } from '../pages/pages-routing.module';
 import { DashboardUserRoutingModule } from '../dashboard/dashboard-user-routing.module';
 import { AdminNavigationBarComponent } from './navigation/admin-navigation-bar/admin-navigation-bar.component';
-import { DashboardAdminRoutingModule } from '../dashboard/dashboard-admin-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { IconTransitionDirective } from '../directive/icon-transition.directive';
 import { ButtonCheckComponent } from './element/button-check/button-check.component';
@@ -28,7 +27,6 @@ import { GoBackDirective } from '../directive/go-back.directive';
     CommonModule,
     PagesRoutingModule,
     DashboardUserRoutingModule,
-    DashboardAdminRoutingModule,
     MatIconModule
   ],
   exports:[

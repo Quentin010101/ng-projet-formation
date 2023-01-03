@@ -1,7 +1,7 @@
 @import 'color.scss';
 .container{
   height: 100vh;
-  background-color: $gray-0;
+  background-color: $gray-50;
   overflow-y: scroll;
 
    -ms-overflow-style: none;  /* IE and Edge */
@@ -13,66 +13,73 @@
 }
 .images-container{
 
-  height: fit-content;
-
-  line-height: 0;       
-  display: inline-block;    
-  margin-right: auto;    
-  margin-left: auto;  
-  -webkit-column-count: 4;    
-  -webkit-column-gap: 0px;    
+  min-height: 100%;
+  padding: 2rem;
+  line-height: 0;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-column-count: 4;
+  -webkit-column-gap:0.5rem;
   -moz-column-count: 4;
-  -moz-column-gap: 0px;
-  column-count: 4;    
-  column-gap: 0px;    
+  -moz-column-gap:0.5rem;
+  column-count: 4;
+  column-gap:0.5rem;
 
 
 }
 
 .card{
+  position:relative;
  max-width: 100%;
  height: fit-content;
  overflow: hidden;
- padding: 0.8rem;
  background-color: white;
-
+ margin-top: 0.5rem;
+ border-radius: 0.25rem;
+ cursor: pointer;
 
  .image-container{
   width: 100%;
-  img{
-    max-width: 100%;
-  }
+    img{
+      max-width: 100%;
+    }
+ }
+
+ .content-container{
+  position: absolute;
+  bottom: 0;
  }
 }
 
 @media (max-width: 1400px){
   .images-container{
-    -webkit-column-count: 3;    
-    -webkit-column-gap: 0px;    
+    -webkit-column-count: 3;
+    -webkit-column-gap:0.5rem;
     -moz-column-count: 3;
-    -moz-column-gap: 0px;
-     column-count: 3;    
-     column-gap: 0px;    
+    -moz-column-gap:0.5rem;
+     column-count: 3;
+     column-gap:0.5rem;
   }
 
 }
 @media (max-width: 1200px){
   .images-container{
-    -webkit-column-count: 2;    
-    -webkit-column-gap: 0px;    
+    -webkit-column-count: 2;
+    -webkit-column-gap:0.5rem;
     -moz-column-count: 2;
-    -moz-column-gap: 0px;
-     column-count: 2;    
-     column-gap: 0px;    
+    -moz-column-gap:0.5rem;
+     column-count: 2;
+     column-gap:0.5rem;
   }
 }
 @media (max-width: 800px){
   .images-container{
-    -webkit-column-count: 1;    
-    -webkit-column-gap: 0px;    
+    -webkit-column-count: 1;
+    -webkit-column-gap:0.5rem;
     -moz-column-count: 1;
-    -moz-column-gap: 0px;
-     column-count: 1;    
-     column-gap: 0px;    
+    -moz-column-gap:0.5rem;
+     column-count: 1;
+     column-gap:0.5rem;
   }
 }
