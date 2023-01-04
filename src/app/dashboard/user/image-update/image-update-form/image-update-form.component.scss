@@ -1,0 +1,46 @@
+@import 'color.scss';
+
+$width: 400px;
+$height: 300px;
+
+.upload{
+    max-width: $width;
+    max-height: $height;
+    min-width: 200px;
+    min-height: 150px;
+    width: fit-content;
+    height: fit-content;
+    border: dotted $gray-300 0.25rem;
+
+    .input{
+        position: relative;
+        max-width: $width;
+        max-height: $height;
+        min-width: 200px;
+        min-height: 150px;
+
+        input, label{
+            position: absolute;
+            inset: 0;
+        }
+        label{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input{
+            visibility: hidden;
+        }
+
+        .preview{
+            max-width: $width;
+            max-height: $height;
+
+            img{
+                max-width: $width;
+                max-height: $height;
+            }
+        }
+    }
+}

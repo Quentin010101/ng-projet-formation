@@ -11,6 +11,8 @@ import { DashboardTemplateComponent } from './user/dashboard-template/dashboard-
 import { GlobalModule } from '../global/global.module';
 import { DashboardAdminTemplateComponent } from './admin/dashboard-admin-template/dashboard-admin-template.component';
 import { MessageComponent } from './admin/message/message.component';
+import { ImageUpdateFormComponent } from './user/image-update/image-update-form/image-update-form.component';
+import { ImageUpdateModule } from './user/image-update/image-update.module';
 
 
 
@@ -19,7 +21,6 @@ import { MessageComponent } from './admin/message/message.component';
   declarations: [
     DashboardTemplateComponent,
     ImageFeedComponent,
-    ImageUpdateComponent,
     SettingsComponent,
     PrivacyComponent,
     ProfileComponent,
@@ -28,9 +29,10 @@ import { MessageComponent } from './admin/message/message.component';
   ],
   imports: [
     CommonModule,
-    GlobalModule,
     DashboardUserRoutingModule,
     RouterModule,
-  ]
+    ImageUpdateModule,
+    GlobalModule,
+  ],
 })
 export class DashboardModule { }
