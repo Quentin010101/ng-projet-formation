@@ -8,7 +8,6 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
 import { ContactComponent } from './contact/contact.component';
 import { TemplateComponent } from './template/template.component';
 import { GlobalModule } from '../global/global.module';
-import { PrimaryNavigationBarComponent } from '../global/navigation/primary-navigation-bar/primary-navigation-bar.component';
 
 
 
