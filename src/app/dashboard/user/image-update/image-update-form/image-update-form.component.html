@@ -1,24 +1,33 @@
 <form #ImageUpdateForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="upload">
+  <div class="upload-container">
+    <div class="up">
+      <div class="upload">
         <div class="input">
-            <label for="image">New Image</label>
-            <input type="file" name="image" id="image" #fileUpload (change)="selectFile($event)">
-            <div  *ngIf="previewSrc" class="preview">
-                <img [src]="previewSrc" alt="preview upload">
-            </div>
+          <label for="image">{{ file? '' : 'Click to upload an image'}}</label>
+          <input type="file" name="image" id="image" #fileUpload (change)="selectFile($event)">
+          <div *ngIf="previewSrc" class="preview">
+            <img [src]="previewSrc" alt="preview upload">
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="upload-container">
+    <div class="form-component">
+      <label for="title"><mat-icon> title</mat-icon>Title</label>
+      <input type="text" name="title" [(ngModel)]="title" #titleUpload placeholder="Enter the title of your image">
+    </div>
+    <div class="form-component">
+      <label for="description">	<mat-icon>description</mat-icon>Description</label>
+      <textarea  name="description" [(ngModel)]="description" #descriptionUpload placeholder="Enter a short description for your image ..."></textarea>
     </div>
     <div>
-        <label for="title">title</label>
-        <input type="text" name="title" [(ngModel)]="title" #titleUpload >
+      <button type="submit" class="button">
+        <span>
+          Upload
+        </span>
+        <mat-icon>attach_file</mat-icon>
+      </button>
     </div>
-    <div>
-        <label for="description">description</label>
-        <input type="text" name="description" [(ngModel)]="description" #descriptionUpload >
-    </div>
-    <div>
-        <button type="submit" >
-            <mat-icon>attach_file</mat-icon>
-        </button>
-    </div>
+  </div>
 </form>

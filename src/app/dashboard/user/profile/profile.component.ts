@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/user.service';
 
@@ -9,12 +10,15 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit{
-  user: User
+
+
+  user: User[]
 
   constructor(private _userservice: UserService){}
 
   ngOnInit(): void {
-    this._userservice.getCurrentUser().subscribe(data => {this.user = data})
+    this._userservice.getCurrentUser().subscribe((data) => {this.user = data})
+
   }
 
 

@@ -10,14 +10,11 @@ import { DashboardTemplateComponent } from './user/dashboard-template/dashboard-
 import { GlobalModule } from '../global/global.module';
 import { DashboardAdminTemplateComponent } from './admin/dashboard-admin-template/dashboard-admin-template.component';
 import { MessageComponent } from './admin/message/message.component';
-<<<<<<< HEAD
 import { ImageScaleDirective } from '../directive/image-scale-transition.directive';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-=======
 import { ImageUpdateFormComponent } from './user/image-update/image-update-form/image-update-form.component';
 import { ImageUpdateModule } from './user/image-update/image-update.module';
->>>>>>> 0cdb29aadbf57f102e592bc904d61d267ee836f9
 
 
 
@@ -36,14 +33,10 @@ import { ImageUpdateModule } from './user/image-update/image-update.module';
     CommonModule,
     DashboardUserRoutingModule,
     RouterModule,
-<<<<<<< HEAD
     FormsModule,
     MatIconModule,
-  ]
-=======
     ImageUpdateModule,
     GlobalModule,
   ],
->>>>>>> 0cdb29aadbf57f102e592bc904d61d267ee836f9
 })
 export class DashboardModule { }

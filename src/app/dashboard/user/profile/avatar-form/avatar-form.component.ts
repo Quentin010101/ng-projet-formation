@@ -7,12 +7,21 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./avatar-form.component.scss']
 })
 export class AvatarFormComponent {
+  
+  @Input() user:User[]
+  avatarPreview: string
 
-  @Input() user: User
-  fileToUpload: File | null = null;
 
   onSubmitAvatar(){}
-  onFileSelected(e?: Event){
+  onFileSelected(e: Event){
+    const files: FileList | null = (e.target as HTMLInputElement).files
+
+    // Check if file exist
+    if(files && files[0]){
+      const reader = new FileReader()
+      reader.readAsDataURL(files[0]);
+      reader.onload = () => this.avatarPreview = reader.result as string
+    }
 
   }
 }

@@ -1,12 +1,22 @@
 <form #ngFormAvatar="ngForm" (ngSubmit)="onSubmitAvatar()">
-  <div class="avatar-container">
-    <img [src]="user.avatar" alt="user avatar">
-    <div>
-      <label for="avatar"><mat-icon>add</mat-icon></label>
-      <input id="avatar" type="file" [(ngModel)]="user.avatar" #ngAvatar="ngModel" name="avatar" (change)="onFileSelected($event)">
+  <div *ngIf="user">
+    <div class="avatar-container">
+      <img [src]="avatarPreview ? avatarPreview :
+                  user[0].avatar ? user[0].avatar :
+                   '/assets/avatar/default-avatar.png'" alt="user avatar">
+      <div>
+        <label  for="avatar"><mat-icon *ngIf="!avatarPreview">add</mat-icon></label>
+        <input id="avatar" type="file" name="avatar" (change)="onFileSelected($event)" required [ngModel]>
+      </div>
     </div>
   </div>
-  <div>
-    <button type="submit">Valid</button>
+  <div *ngIf="!user">
+    <div class="avatar-container">
+      <img [src]="'/assets/avatar/default-avatar.png'" alt="user avatar">
+      <div>
+        <label for="avatar"><mat-icon>add</mat-icon></label>
+      </div>
+    </div>
   </div>
+  <button-check [value]="'upload'" [disabled]="!ngFormAvatar.valid"></button-check>
 </form>

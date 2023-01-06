@@ -1,12 +1,82 @@
 @import 'color.scss';
-
-.container{
-  background-color: $gray-50;
+.cont{
+  box-sizing: border-box;
+  background-color: $gray-25;
   padding: 2rem;
+  min-height:  100vh;
+  h3{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: 0;
+    margin-right: auto;
+
+    mat-icon{
+      color: $gray-600;
+      font-size: 20px;
+    }
+  }
+}
+.container{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding-bottom: 1rem;
+
+
+  .container-avatar{
+    padding: 2rem 3rem;
+  }
+  .container-user > div{
+    max-width: 700px;
+  }
 }
 
 .section{
   padding: 2rem;
   background-color: white;
   border-radius: 0.45rem;
+  box-shadow: $shadow;
+}
+
+@media (max-width: 1000px){
+.cont{
+  padding: 1rem;
+}
+  .container{
+    padding-bottom: 1rem;
+    gap: 1rem;
+
+    .container-avatar{
+      padding: 1rem 2rem;
+    }
+  }
+}
+@media (max-width: 750px){
+  .container{
+    grid-template-columns: auto;
+    .container-avatar{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+  }
+  .section{
+    padding: 1rem;
+  }
+}
+@media (max-width: 550px){
+  .cont{
+    padding: 0.5rem;
+  }
+  .container{
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+
+
+    .container-avatar{
+      padding: 0.5rem 1rem;
+    }
+  }
 }

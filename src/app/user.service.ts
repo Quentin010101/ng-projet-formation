@@ -10,9 +10,9 @@ export class UserService {
 
   constructor(private http: HttpClient){}
 
-  getCurrentUser(): Observable<User>{
+  getCurrentUser(): Observable<User[]>{
     const id = localStorage.getItem('id')
 
-    return this.http.get<User>(`${this.url}?id=${id}`)
+    return this.http.get<User[]>(`${this.url}?id=${id}`)
   }
 }

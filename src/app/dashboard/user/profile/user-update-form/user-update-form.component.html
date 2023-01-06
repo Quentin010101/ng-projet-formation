@@ -1,10 +1,90 @@
-<form #userForm="ngForm">
-  <div>
+<form #userForm="ngForm" *ngIf="user">
+  <div class="form-component small">
     <label for="pseudo">Pseudo</label>
-    <input type="text">
+    <input type="text" placeholder="Enter a new pseudo" [(ngModel)]="user[0].pseudo" name="pseudo" #pseudo="ngModel"
+      required>
+    <div class='form-error-component'>
+      <div *ngIf="pseudo.invalid && pseudo.dirty">
+        <p>* Pseudo is required</p>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="email">email</label>
-    <input type="text">
+  <div class="form-component small">
+    <label for="email">Email</label>
+    <input type="text" placeholder="Enter a new email address" [(ngModel)]="user[0].email" name="email" #email="ngModel"
+      required email>
+    <div class='form-error-component'>
+      <div *ngIf="email.invalid && email.dirty">
+        <p>* A valid email is required</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Enter your name" [(ngModel)]="user[0].name" name="name" #name="ngModel"
+      pattern="[a-zA-Z]{1,20}" maxlength="20">
+    <div class='form-error-component'>
+      <div *ngIf="name.invalid && name.dirty">
+        <p>* Special character are not allowed</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="email">Surname</label>
+    <input type="text" placeholder="Enter your surname" [(ngModel)]="user[0].surname" name="surname" #surname="ngModel"
+      pattern="[a-zA-Z]{1,20}" maxlength="20">
+    <div class='form-error-component'>
+      <div *ngIf="surname.invalid && surname.dirty">
+        <p>* Special character are not allowed</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="email">Country</label>
+    <input type="text" placeholder="Where do you live?" [(ngModel)]="user[0].country" name="country" #country="ngModel"
+      pattern="[a-zA-Z]{1,20}" maxlength="20">
+    <div class='form-error-component'>
+      <div *ngIf="country.invalid && country.dirty">
+        <p>* Special character are not allowed</p>
+      </div>
+    </div>
+  </div>
+  <div class="margin">
+    <button-check [value]="'update'" [disabled]="!userForm.valid"></button-check>
+  </div>
+</form>
+<form #userForm="ngForm" *ngIf="!user">
+  <div class="form-component small">
+    <label for="pseudo">Pseudo</label>
+    <input type="text" placeholder="Enter a new pseudo">
+    <div class='form-error-component'>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="email">Email</label>
+    <input type="text" placeholder="Enter a new email address">
+    <div class='form-error-component'>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Enter your name">
+    <div class='form-error-component'>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="email">Surname</label>
+    <input type="text" placeholder="Enter your surname">
+    <div class='form-error-component'>
+    </div>
+  </div>
+  <div class="form-component small">
+    <label for="email">Country</label>
+    <input type="text" placeholder="Where do you live?">
+    <div class='form-error-component'>
+    </div>
+  </div>
+  <div class="margin">
+    <button-check [value]="'update'" [disabled]="true"></button-check>
   </div>
 </form>
