@@ -1,0 +1,13 @@
+<div class="container"
+(mousedown)="onMouseDown($event)"
+(mouseup)="onMouseUp($event)"
+>
+  <div *ngIf="imagesTrending" class="container-card" >
+      <div *ngFor="let image of imagesTrending, let i = index" >
+        <div class="card" *ngIf="i < 9" [attr.data-index]="i" >
+            <img [src]="image.url" alt="image.title">
+        </div>
+      </div>
+    </div>
+</div>
+

@@ -8,6 +8,9 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
 import { ContactComponent } from './contact/contact.component';
 import { TemplateComponent } from './template/template.component';
 import { GlobalModule } from '../global/global.module';
+import { CarousselComponent } from './home/caroussel/caroussel.component';
+import { CarousselDirective } from './home/caroussel.directive';
+
 
 
 
@@ -20,6 +23,9 @@ import { GlobalModule } from '../global/global.module';
     FooterComponent,
     CategoryDetailComponent,
     ContactComponent,
+    CarousselComponent,
+    CarousselDirective,
+
   ],
   imports: [
     GlobalModule,

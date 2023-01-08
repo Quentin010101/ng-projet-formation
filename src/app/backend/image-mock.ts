@@ -28,31 +28,58 @@ export const IMAGE: Image[] = [
       'beautiful',
     ]
   },
-  {
-    id: 3,
-    url: '/assets/image/login-background.png',
-    title: 'Beautiful background image',
-    category: [
-      'abstract',
-      'beautiful',
-    ]
-  },
-  {
-    id: 5,
-    url: '/assets/image/a1.png',
-    title: 'Beautiful background image',
-    category: [
-      'abstract',
-      'beautiful',
-    ]
-  },
-  {
-    id: 6,
-    url: '/assets/image/a2.png',
-    title: 'Beautiful background image',
-    category: [
-      'abstract',
-      'beautiful',
-    ]
-  },
+{
+  id: 3,
+  url: '/assets/image/login-background.png',
+  title: 'Beautiful background image',
+  category: [
+    'abstract',
+    'beautiful',
+  ]
+},
+{
+  id: 5,
+  url: '/assets/image/a1.png',
+  title: 'Beautiful background image',
+  category: [
+    'abstract',
+    'beautiful',
+  ]
+},
+{
+  id: 6,
+  url: '/assets/image/a2.png',
+  title: 'Beautiful background image',
+  category: [
+    'abstract',
+    'beautiful',
+  ]
+},
+{
+  id: 7,
+  url: '/assets/image/cyber.png',
+  title: 'Beautiful background image',
+  category: [
+    'abstract',
+    'beautiful',
+  ]
+},
+{
+  id: 8,
+  url: '/assets/image/tree.png',
+  title: 'Beautiful background image',
+  category: [
+    'abstract',
+    'beautiful',
+  ]
+},
+{
+  id: 9,
+  url: '/assets/image/mask.png',
+  title: 'Beautiful background image',
+  category: [
+    'abstract',
+    'beautiful',
+  ]
+},
 ]
