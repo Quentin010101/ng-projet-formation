@@ -1,13 +1,11 @@
-<div class="container"
-(mousedown)="onMouseDown($event)"
-(mouseup)="onMouseUp($event)"
->
-  <div *ngIf="imagesTrending" class="container-card" >
-      <div *ngFor="let image of imagesTrending, let i = index" >
-        <div class="card" *ngIf="i < 9" [attr.data-index]="i" >
-            <img [src]="image.url" alt="image.title">
+<div class="container" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)">
+  <div *ngIf="imagesTrending" class="container-cards" >
+    <div class="container-card" (transitionend)="updateCarousel($event)">
+      <div *ngFor="let image of imagesTrending, let i = index" [attr.index]="i" class="card-opacity">
+        <div class="card">
+          <img [src]="image.url" alt="image.title">
         </div>
       </div>
     </div>
+  </div>
 </div>
-
