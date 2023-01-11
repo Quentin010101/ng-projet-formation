@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { TemplateComponent } from './template/template.component';
 import { GlobalModule } from '../global/global.module';
 import { CarousselComponent } from './home/caroussel/caroussel.component';
+import { BannerComponent } from './home/banner/banner.component';
 
 
 
@@ -23,6 +24,7 @@ import { CarousselComponent } from './home/caroussel/caroussel.component';
     CategoryDetailComponent,
     ContactComponent,
     CarousselComponent,
+    BannerComponent,
 
   ],
   imports: [

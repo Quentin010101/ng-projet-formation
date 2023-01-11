@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ImageService } from 'src/app/image.service';
 import { Image } from 'src/app/model/image';
 
@@ -11,6 +12,7 @@ export class CarousselComponent {
 
   imagesTrending: Image[]
   delta: number
+  isRunning: boolean = false
   arrIndex: Array<number> = [0,1,2,3,4,5,6,7,8]
 
   constructor(private _imageservice: ImageService){}
@@ -29,8 +31,12 @@ export class CarousselComponent {
   onMouseUp($event: MouseEvent): void {
     const containerCard = document.querySelector('.container-card') as HTMLElement
     this.delta = this.getDirection($event)
-    if(this.delta !== 0) this.moveItem(containerCard)
-  }
+
+    if(this.delta !== 0 && !this.isRunning){
+      this.isRunning = true
+      this.moveItem(containerCard)
+    }
+}
 
   getDirection(evt: MouseEvent){
     let container = document.querySelector('.container') as HTMLElement
@@ -62,11 +68,11 @@ export class CarousselComponent {
         cardItem.style.opacity = '1';
         cardItem.style.transform = 'scale(1.2)';
         cardItem.style.zIndex = '2';
-        cardItem.style.boxShadow = '2px 2px 2px rgba(0,0,0,0.4)';
+        cardItem.style.boxShadow = '2px 2px 2px rgba(0,0,0,0.2)';
         cardItem.style.filter = 'blur(0px)';
       }
       if(this.arrIndex[3] === index || this.arrIndex[5] === index) {
-        cardItem.style.opacity = '0.6';
+        cardItem.style.opacity = '0.5';
         cardItem.style.transform = 'scale(1)';
         cardItem.style.zIndex = '1';
         cardItem.style.boxShadow = '2px 2px 2px rgba(0,0,0,0)';
@@ -104,6 +110,8 @@ export class CarousselComponent {
       containerCard.style.transition = 'none'
       containerCard.style.transform = 'translateX(0)'
     }
+
+    this.isRunning = false
 
   }
 

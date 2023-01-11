@@ -1,10 +1,8 @@
-$height: 400px;
 
 .container {
-  padding: 3rem 0;
   position: relative;
   width: 100%;
-  height: $height;
+  height: 350px;
   overflow: hidden;
   .container-cards {
     position: absolute;
@@ -23,19 +21,19 @@ $height: 400px;
     }
     .card-opacity{
       opacity: 0;
-      border-radius: 0.5rem;
       width: 100%;
 
     }
     .card-opacity:nth-child(4){
-      opacity: 0.6;
+      opacity: 0.5;
     }
     .card-opacity:nth-child(5){
       opacity: 1;
       transform: scale(1.2);
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     }
     .card-opacity:nth-child(6){
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
 
@@ -51,27 +49,73 @@ $height: 400px;
       }
     }
   }
+ 
   [index="4"] {
     position: relative;
 
     ::before{
-      content: '';
+      content: '1';
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position:absolute;
-      top: 0;
+      top: -2%;
       right: 6%;
-      width:10%;
-      height: 32%;
-      background-color: rgb(124, 141, 26);
-      border: 3px rgba(0,0,0,0.5) solid;
+      width:6%;
+      height: 25%;
+      background-color: #E6B621;
+      border: 2px rgb(55, 55, 55) solid;
       border-bottom-left-radius: 1rem;
       border-bottom-right-radius: 1rem;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
 
+
+    }
+  }
+  [index="3"] {
+    position: relative;
+
+    ::before{
+      content: '2';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position:absolute;
+      top: -2%;
+      right: 6%;
+      width:6%;
+      height: 20%;
+      background-color: #8F8F9B;
+      border: 2px rgb(55, 55, 55) solid;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    }
+  }
+  [index="5"] {
+    position: relative;
+
+    ::before{
+      content: '3';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position:absolute;
+      top: -2%;
+      right: 6%;
+      width:6%;
+      height: 15%;
+      background-color: #A75F15;
+      border: 2px rgb(55, 55, 55) solid;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
     }
   }
 }
 @media (max-width: 1000px){
   .container {
-    padding: 5rem 0 !important;
+    height: 250px;
   }
   .container-card {
     gap: 2rem !important;
