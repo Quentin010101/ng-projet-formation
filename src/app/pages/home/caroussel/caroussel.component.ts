@@ -51,7 +51,7 @@ export class CarousselComponent {
   moveItem(element: HTMLElement){
     let nbOfImage = this.imagesTrending.length
 
-    element.style.transition = 'transform 0.4s cubic-bezier(.17,.67,.24,.85)'
+    element.style.transition = 'transform 0.4s cubic-bezier(.64,.15,.58,.9)'
     if(this.delta > 0)  element.style.transform = `translateX(${100/nbOfImage}%)`
     if(this.delta < 0)  element.style.transform = `translateX(${-100/nbOfImage}%)`
 
