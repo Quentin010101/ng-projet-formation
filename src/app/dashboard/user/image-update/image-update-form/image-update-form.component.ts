@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ImageService } from 'src/app/image.service';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-image-update-form',

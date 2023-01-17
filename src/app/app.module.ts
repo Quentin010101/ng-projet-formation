@@ -14,8 +14,9 @@ import { GlobalModule } from './global/global.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemDataService } from './backend/in-memory-data.service';
-import { UserService } from './user.service';
+import { UserService } from './service/user.service';
 import { ProfileModule } from './dashboard/user/profile/profile.module';
+import { TranslateDirective } from './directive/translate.directive';
 
 
 @NgModule({

@@ -1,0 +1,60 @@
+@import 'color.scss';
+
+:host{
+  .container{
+  }
+  .contact{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3rem 0 2rem 0;
+
+    h4{
+      font-weight: 600;
+      color: $gray-600;
+      text-align: center;
+    }
+
+    p{
+      margin:0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+
+    }
+
+    span{
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: $gray-600;
+    }
+  }
+
+  .social{
+
+    display: flex;
+    flex-direction: column;
+    a{
+      margin: 0.3rem 1rem;
+    }
+  }
+
+  .copyright{
+
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 800px){
+  :host{
+    .contact{
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+  }
+}

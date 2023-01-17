@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageService } from 'src/app/image.service';
+import { ImageService } from 'src/app/service/image.service';
 import { Image } from 'src/app/model/image';
 
 @Component({

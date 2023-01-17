@@ -1,7 +1,13 @@
-.container{
+:host{
     padding: 2rem 2rem;
+
+
+    .caroussel-container{
+      margin-top: 3rem;
+    }
 
     h2{
         text-align: center;
     }
+
 }

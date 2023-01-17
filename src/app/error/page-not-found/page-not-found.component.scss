@@ -1,0 +1,33 @@
+@import 'color.scss';
+
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  p{
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: $gray-600;
+  }
+  p:nth-child(2){
+      font-weight: 600;
+      font-size: 1.2rem;
+  }
+
+  div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+
+    a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+}

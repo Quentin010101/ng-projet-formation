@@ -1,4 +1,4 @@
-<div class="container" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)">
+<div class="container" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)" [ngClass]="imagesTrending? '': 'opaque'">
   <div *ngIf="imagesTrending" class="container-cards" >
     <div class="container-card" (transitionend)="updateCarousel($event)">
       <div *ngFor="let image of imagesTrending, let i = index" [attr.index]="i" class="card-opacity">

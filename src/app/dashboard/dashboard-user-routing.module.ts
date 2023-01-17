@@ -16,7 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 const dashboardRoutes: Routes = [
   {
     path: 'dashboard',
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     data: {
       role: 'ROLE_USER',
     },

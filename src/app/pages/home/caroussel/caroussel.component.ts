@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ImageService } from 'src/app/image.service';
+import { ImageService } from 'src/app/service/image.service';
 import { Image } from 'src/app/model/image';
 
 @Component({
@@ -30,11 +30,12 @@ export class CarousselComponent {
   }
   onMouseUp($event: MouseEvent): void {
     const containerCard = document.querySelector('.container-card') as HTMLElement
-    this.delta = this.getDirection($event)
-
-    if(this.delta !== 0 && !this.isRunning){
-      this.isRunning = true
-      this.moveItem(containerCard)
+    if(!this.isRunning){
+      this.delta = this.getDirection($event)
+      if(this.delta !== 0 && !this.isRunning){
+        this.isRunning = true
+        this.moveItem(containerCard)
+      }
     }
 }
 
@@ -50,7 +51,7 @@ export class CarousselComponent {
   moveItem(element: HTMLElement){
     let nbOfImage = this.imagesTrending.length
 
-    element.style.transition = 'transform 0.5s ease'
+    element.style.transition = 'transform 0.4s cubic-bezier(.17,.67,.24,.85)'
     if(this.delta > 0)  element.style.transform = `translateX(${100/nbOfImage}%)`
     if(this.delta < 0)  element.style.transform = `translateX(${-100/nbOfImage}%)`
 
@@ -79,7 +80,7 @@ export class CarousselComponent {
         cardItem.style.filter = 'blur(1px)';
 
       }
-      cardItem.style.transition = 'all 0.5s ease';
+      cardItem.style.transition = 'all 0.4s ease';
 
       }
   }

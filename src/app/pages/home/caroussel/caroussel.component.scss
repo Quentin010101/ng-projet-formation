@@ -4,6 +4,13 @@
   width: 100%;
   height: 350px;
   overflow: hidden;
+  opacity:1;
+  transition: opacity 1s ease;
+  cursor: grab;
+
+  &.opaque{
+    opacity:0 !important;
+  }
   .container-cards {
     position: absolute;
     left: 50%;
@@ -49,71 +56,41 @@
       }
     }
   }
- 
+
+
+
   [index="4"] {
     position: relative;
 
     ::before{
-      content: '1';
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      content: url('/assets/utils/gold.png');
       position:absolute;
-      top: -2%;
-      right: 6%;
-      width:6%;
-      height: 25%;
-      background-color: #E6B621;
-      border: 2px rgb(55, 55, 55) solid;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
-
-
+      top: -3%;
+      right: -3%;
     }
   }
   [index="3"] {
     position: relative;
 
     ::before{
-      content: '2';
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      content: url('/assets/utils/silver.png');
       position:absolute;
-      top: -2%;
-      right: 6%;
-      width:6%;
-      height: 20%;
-      background-color: #8F8F9B;
-      border: 2px rgb(55, 55, 55) solid;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+      top: -3%;
+      right: -3%;
     }
   }
   [index="5"] {
     position: relative;
 
     ::before{
-      content: '3';
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      content: url('/assets/utils/bronze.png');
       position:absolute;
-      top: -2%;
-      right: 6%;
-      width:6%;
-      height: 15%;
-      background-color: #A75F15;
-      border: 2px rgb(55, 55, 55) solid;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+      top: -3%;
+      right: -3%;
     }
   }
 }
-@media (max-width: 1000px){
+@media (max-width: 1300px){
   .container {
     height: 250px;
   }

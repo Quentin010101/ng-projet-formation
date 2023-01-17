@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import {  Injectable } from "@angular/core";
-import { User } from "./model/user";
+import { User } from "../model/user";
 import { Observable } from 'rxjs'
 
 
@@ -14,5 +14,9 @@ export class UserService {
     const id = localStorage.getItem('id')
 
     return this.http.get<User[]>(`${this.url}?id=${id}`)
+  }
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(this.url)
   }
 }
