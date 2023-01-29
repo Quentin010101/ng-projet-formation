@@ -7,8 +7,8 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./avatar-form.component.scss']
 })
 export class AvatarFormComponent {
-  
-  @Input() user:User[]
+
+  @Input() user:User
   avatarPreview: string
 
 

@@ -7,15 +7,15 @@ import { Image } from '../model/image';
   providedIn: 'root'
 })
 export class ImageService {
-  url: string = 'api/images'
+  url: string = 'http://localhost:8080/image'
 
   constructor(private http: HttpClient) { }
 
-  uploadImage(file: FormData, title: string, description: string){
-    return this.http.post<Image>(this.url, {file: file, title: title, description: description})
+  getTopImage(): Observable<Image[]>{
+    return this.http.get<Image[]>(this.url + "/topimage")
   }
 
-  getImages(): Observable<Image[]>{
-    return this.http.get<Image[]>(this.url)
+  getFeed(id: number): Observable<Image[]>{
+    return this.http.get<Image[]>(this.url + "/feed?id=" + id)
   }
 }

@@ -4,7 +4,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { LoginComponent } from './login/login.component';
 import { AuthNavigationModule } from './auth-navigation.module';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { AuthService } from '../service/auth.service';
 import {  AuthGuardService } from './auth-guard.service';
 import { MatIconModule } from '@angular/material/icon'
 import { GoBackComponent } from './go-back/go-back.component';

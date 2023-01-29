@@ -1,7 +1,7 @@
 <form #userForm="ngForm" *ngIf="user">
   <div class="form-component small">
     <label for="pseudo">Pseudo</label>
-    <input type="text" placeholder="Enter a new pseudo" [(ngModel)]="user[0].pseudo" name="pseudo" #pseudo="ngModel"
+    <input type="text" placeholder="Enter a new pseudo" [(ngModel)]="user.pseudo" name="pseudo" #pseudo="ngModel"
       required>
     <div class='form-error-component'>
       <div *ngIf="pseudo.invalid && pseudo.dirty">
@@ -11,7 +11,7 @@
   </div>
   <div class="form-component small">
     <label for="email">Email</label>
-    <input type="text" placeholder="Enter a new email address" [(ngModel)]="user[0].email" name="email" #email="ngModel"
+    <input type="text" placeholder="Enter a new email address" [(ngModel)]="user.email" name="email" #email="ngModel"
       required email>
     <div class='form-error-component'>
       <div *ngIf="email.invalid && email.dirty">
@@ -21,7 +21,7 @@
   </div>
   <div class="form-component small">
     <label for="name">Name</label>
-    <input type="text" placeholder="Enter your name" [(ngModel)]="user[0].name" name="name" #name="ngModel"
+    <input type="text" placeholder="Enter your name" [(ngModel)]="user.name" name="name" #name="ngModel"
       pattern="[a-zA-Z]{1,20}" maxlength="20">
     <div class='form-error-component'>
       <div *ngIf="name.invalid && name.dirty">
@@ -31,7 +31,7 @@
   </div>
   <div class="form-component small">
     <label for="email">Surname</label>
-    <input type="text" placeholder="Enter your surname" [(ngModel)]="user[0].surname" name="surname" #surname="ngModel"
+    <input type="text" placeholder="Enter your surname" [(ngModel)]="user.surname" name="surname" #surname="ngModel"
       pattern="[a-zA-Z]{1,20}" maxlength="20">
     <div class='form-error-component'>
       <div *ngIf="surname.invalid && surname.dirty">
@@ -41,7 +41,7 @@
   </div>
   <div class="form-component small">
     <label for="email">Country</label>
-    <input type="text" placeholder="Where do you live?" [(ngModel)]="user[0].country" name="country" #country="ngModel"
+    <input type="text" placeholder="Where do you live?" [(ngModel)]="user.country" name="country" #country="ngModel"
       pattern="[a-zA-Z]{1,20}" maxlength="20">
     <div class='form-error-component'>
       <div *ngIf="country.invalid && country.dirty">

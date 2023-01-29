@@ -7,11 +7,20 @@ import { Category } from '../model/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  url: string = "api/categories"
+  url: string = "http://localhost:8080/image"
 
   constructor(private http: HttpClient) { }
 
-  getCategories(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.url)
+  getCategoryList(): Observable<Category[]>{
+    return this.http.get<Category[]>(this.url + "/categorylist")
+  }
+
+  getTopCategory(): Observable<Category[]>{
+    console.log("get category")
+    return this.http.get<Category[]>(this.url + "/topcategory")
+  }
+
+  getCategory(id: number): Observable<Category>{
+    return this.http.get<Category>(this.url + "/category?id=" + id)
   }
 }

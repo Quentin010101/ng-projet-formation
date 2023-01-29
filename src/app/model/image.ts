@@ -1,6 +1,7 @@
 export class Image{
-  id!: number
-  url!: string
+  imageid!: number
+  userid!: number
+  imagePath!: string
   title!: string
-  category!: Array<string>
+  description!: string
 }

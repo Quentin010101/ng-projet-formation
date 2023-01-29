@@ -3,7 +3,7 @@
     <div class="container-card" (transitionend)="updateCarousel($event)">
       <div *ngFor="let image of imagesTrending, let i = index" [attr.index]="i" class="card-opacity">
         <div class="card">
-          <img [src]="image.url" alt="image.title">
+          <img [src]="image.imagePath" alt="{{image.title}}">
         </div>
       </div>
     </div>

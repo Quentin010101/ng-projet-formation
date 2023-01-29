@@ -7,7 +7,7 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./user-update-form.component.scss']
 })
 export class UserUpdateFormComponent {
-  @Input() user: User[]
+  @Input() user: User
 
-  
+
 }

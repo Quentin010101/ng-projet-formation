@@ -6,17 +6,15 @@ import { Observable } from 'rxjs'
 
 @Injectable()
 export class UserService {
-  url: string = 'api/users'
 
   constructor(private http: HttpClient){}
+  url: string = "http://localhost:8080/user"
 
-  getCurrentUser(): Observable<User[]>{
-    const id = localStorage.getItem('id')
-
-    return this.http.get<User[]>(`${this.url}?id=${id}`)
+  getUser(id: number): Observable<User>{
+    return this.http.get<User>(this.url + "/show?id=" + id)
   }
 
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.url)
+  updateUser(user: User): Observable<User>{
+    return this.http.post<User>(this.url + "/update", user)
   }
 }

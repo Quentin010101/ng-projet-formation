@@ -2,10 +2,10 @@
   <div class="images-container" >
     <div *ngFor="let image of userImages" class="card" imageScaleDirective>
       <div class="image-container" z>
-        <img [src]="image.url" alt="{{ image.title }}">
+        <img [src]="image.imagePath" alt="{{ image.title }}">
       </div>
       <div class="content-container">
-        
+
       </div>
     </div>
   </div>

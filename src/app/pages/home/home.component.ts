@@ -7,14 +7,7 @@ import { Image } from 'src/app/model/image';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  imagesTrending: Image[]
+export class HomeComponent{
 
-  constructor(private _imageservice: ImageService){}
 
-  ngOnInit(): void {
-    this._imageservice.getImages().subscribe({
-      next: data => this.imagesTrending = data
-    })
-  }
 }

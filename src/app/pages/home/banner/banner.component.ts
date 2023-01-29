@@ -22,15 +22,15 @@ export class BannerComponent {
   constructor(private el : ElementRef, private _categoriesService: CategoryService, private _userService: UserService, private _imageService: ImageService){}
 
   ngOnInit(){
-    this._categoriesService.getCategories().subscribe({
-      next: data => { this.category = data.length}
-    })
-    this._imageService.getImages().subscribe({
-      next: data => { this.images = data.length}
-    })
-    this._userService.getUsers().subscribe({
-      next: data => { this.users = data.length}
-    })
+    // this._categoriesService.getCategories().subscribe({
+    //   next: data => { this.category = data.length}
+    // })
+    // this._imageService.getImages().subscribe({
+    //   next: data => { this.images = data.length}
+    // })
+    // this._userService.getUsers().subscribe({
+    //   next: data => { this.users = data.length}
+    // })
   }
 
   ngAfterViewInit(){

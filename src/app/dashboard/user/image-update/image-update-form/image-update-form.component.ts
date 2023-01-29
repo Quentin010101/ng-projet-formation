@@ -32,6 +32,6 @@ export class ImageUpdateFormComponent {
     const formData = new FormData()
     formData.append('newImage', this.file)
 
-    this._imageservice.uploadImage(formData, this.title, this.description)
+    // this._imageservice.uploadImage(formData, this.title, this.description)
   }
 }

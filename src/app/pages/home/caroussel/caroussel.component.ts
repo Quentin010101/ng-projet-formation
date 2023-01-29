@@ -18,7 +18,7 @@ export class CarousselComponent {
   constructor(private _imageservice: ImageService){}
 
   ngOnInit(): void {
-    this._imageservice.getImages().subscribe({
+    this._imageservice.getTopImage().subscribe({
       next: (data) => {
         this.imagesTrending = data
       }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IMAGE } from 'src/app/backend/image-mock';
 import { Image } from 'src/app/model/image';
 
 
@@ -12,6 +11,5 @@ export class ImageFeedComponent implements OnInit{
   userImages!: Image[]
 
   ngOnInit(){
-    this.userImages = IMAGE
   }
 }
