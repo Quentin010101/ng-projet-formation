@@ -7,5 +7,5 @@ export class User {
   password: string
   email!: string
   role!: string
-  avatar?: string
+  avatarPath?: string
 }

@@ -1,1 +1,12 @@
-<p>category-detail works!</p>
+<div class="container">
+    <ng-container *ngIf="category">
+        <h2>Category <span>{{ category.type }}</span></h2>
+        <div class="image-list">
+            <ng-container *ngFor="let image of category.listeImage">
+                <div class="item">
+                    <img [src]="image.imagePath" alt="{{ image.title }}">
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>

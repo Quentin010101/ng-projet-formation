@@ -23,7 +23,7 @@ export class TranslateDirective {
 
         this.unobserve();
       } else {
-        this.el.nativeElement.style.transform = 'translateX(40%)';
+        this.el.nativeElement.style.transform = 'translateX(-40%)';
         this.el.nativeElement.style.opacity = '0';
       }
     });

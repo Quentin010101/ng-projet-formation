@@ -3,7 +3,7 @@
       <h2>Most viewed Category:</h2>
       <div class="container-category">
         <ng-container *ngFor="let category of categories">
-          <div class="section" appTranslate [delay]="300">
+          <div class="section" appOpacity [delay]="200">
             <h3>{{ category.type }}</h3>
               <div class="grid-container">
                 <ng-container *ngFor="let image of category.listeImage">

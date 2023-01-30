@@ -12,9 +12,10 @@ import { CarousselComponent } from './home/caroussel/caroussel.component';
 import { BannerComponent } from './home/banner/banner.component';
 import { TranslateDirective } from '../directive/translate.directive';
 import { OpacityDirective } from '../directive/opacity.directive';
-import { CategorySingleComponent } from './category/category-single/category-single.component';
 import { ExploreComponent } from './home/explore/explore.component';
 import { HomeCategoryComponent } from './home/category/category.component';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -32,14 +33,15 @@ import { HomeCategoryComponent } from './home/category/category.component';
     BannerComponent,
     TranslateDirective,
     OpacityDirective,
-    CategorySingleComponent,
     ExploreComponent,
     HomeCategoryComponent,
+    ContactFormComponent,
   ],
   imports: [
     GlobalModule,
     CommonModule,
     PagesRoutingModule,
+    RouterModule,
   ]
 })
 export class PagesModule { }

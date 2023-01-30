@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 
 @Component({
@@ -30,7 +31,14 @@ export class ImageUpdateFormComponent {
   onSubmit() {
 
     const formData = new FormData()
-    formData.append('newImage', this.file)
+    formData.append('file', this.file)
+    formData.append('title', this.title)
+    formData.append('description', this.description)
+
+    console.log(formData)
+    this._imageservice.saveImage(formData).subscribe({
+      next: data => console.log(data)
+    });
 
     // this._imageservice.uploadImage(formData, this.title, this.description)
   }
