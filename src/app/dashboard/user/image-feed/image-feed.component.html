@@ -1,7 +1,7 @@
 <div class="container" >
   <div class="images-container" >
     <div *ngFor="let image of userImages" class="card" imageScaleDirective>
-      <div class="image-container" z>
+      <div class="image-container">
         <img [src]="image.imagePath" alt="{{ image.title }}">
       </div>
       <div class="content-container">

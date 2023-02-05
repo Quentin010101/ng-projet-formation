@@ -1,4 +1,7 @@
+import { compileDeclarePipeFromMetadata } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { empty } from 'rxjs';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 
@@ -8,15 +11,18 @@ import { ImageService } from 'src/app/service/image.service';
   styleUrls: ['./image-update-form.component.scss']
 })
 export class ImageUpdateFormComponent {
-  file: File
-  title: string
-  description: string
-  previewSrc: string
+  public file: File
+  public title: string
+  public description: string
+  public previewSrc: string
+  public errorMessage: string
+  public message: string
 
 
   constructor(private _imageservice: ImageService) { }
 
   selectFile($event: Event) {
+
     const files: FileList | null = ($event.target as HTMLInputElement).files
 
     if (files && files[0]) {
@@ -28,18 +34,28 @@ export class ImageUpdateFormComponent {
     }
 
   }
-  onSubmit() {
+  onSubmit(form: NgForm) {
+    this.message = ''
+    this.errorMessage = ''
 
     const formData = new FormData()
     formData.append('file', this.file)
     formData.append('title', this.title)
     formData.append('description', this.description)
 
-    console.log(formData)
     this._imageservice.saveImage(formData).subscribe({
-      next: data => console.log(data)
+      next: () => this.clearForm(form),
+      error: (error) => this.errorMessage = error
+
     });
 
-    // this._imageservice.uploadImage(formData, this.title, this.description)
+  }
+
+  clearForm(form: NgForm){
+    this.message = "Your image as been upload!"
+    this.title = ''
+    this.description= ''
+    this.previewSrc= ''
+    form.reset()
   }
 }

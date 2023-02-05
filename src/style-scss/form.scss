@@ -53,6 +53,20 @@
     }
   }
 }
+.validMessage{
+  background-color: $ok-300;
+  color: $gray-25;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.errorMessage{
+  background-color: $alert-300;
+  color: $gray-25;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
 
 button.log{
   background-color: transparent;
@@ -68,10 +82,21 @@ button.log{
   margin: 1rem 0;
   padding: 0.5rem 0.8rem;
   background-color: transparent;
-  border: 1px solid $gray-600;
-  color: $gray-600;
+
   border-radius: 0.25rem;
-  cursor: pointer;
+
+  &:not(disabled){
+    cursor: pointer;
+    border: 1px solid $ok-50;
+    color: $ok-50;
+  }
+
+  &:disabled{
+    cursor: default;
+    border: 1px solid $alert-50;
+    color: $alert-50;
+  }
+
   mat-icon{
     font-size: 22px;
   }

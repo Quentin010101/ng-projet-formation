@@ -1,21 +1,21 @@
 <ng-container *ngIf="categories">
   <div class="container">
-      <h2>Most viewed Category:</h2>
-      <div class="container-category">
-        <ng-container *ngFor="let category of categories">
+    <h2>Most viewed Category:</h2>
+    <div class="container-category">
+      <ng-container *ngFor="let category of categories">
+        <a routerLink="/category/{{ category.categoryid }}">
           <div class="section" appOpacity [delay]="200">
             <h3>{{ category.type }}</h3>
-              <div class="grid-container">
-                <ng-container *ngFor="let image of category.listeImage">
-                  <div class="items">
-                    <img [src]="image.imagePath" alt="{{ image.title }}">
-                  </div>
-                </ng-container>
-              </div>
+            <div class="grid-container">
+              <ng-container *ngFor="let image of category.listeImage">
+                <div class="items">
+                  <img [src]="image.imagePath" alt="{{ image.title }}">
+                </div>
+              </ng-container>
+            </div>
           </div>
-        </ng-container>
-      </div>
+        </a>
+      </ng-container>
+    </div>
   </div>
 </ng-container>
-
-

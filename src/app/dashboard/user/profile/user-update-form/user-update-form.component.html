@@ -1,4 +1,4 @@
-<form #userForm="ngForm" *ngIf="user">
+<form #userForm="ngForm" *ngIf="user" (ngSubmit)="onSubmitUser(userForm)">
   <div class="form-component small">
     <label for="pseudo">Pseudo</label>
     <input type="text" placeholder="Enter a new pseudo" [(ngModel)]="user.pseudo" name="pseudo" #pseudo="ngModel"
@@ -49,10 +49,21 @@
       </div>
     </div>
   </div>
-  <div class="margin">
-    <button-check [value]="'update'" [disabled]="!userForm.valid"></button-check>
+  <div>
+    <button type="submit" class="button" [disabled]="!userForm.valid">
+      <span>
+        Upload
+      </span>
+      <mat-icon>attach_file</mat-icon>
+    </button>
   </div>
 </form>
+<div class="validMessage" *ngIf="message">
+{{ message }}
+</div>
+<div class="errorMessage" *ngIf="errorMessage">
+{{ errorMessage }}
+</div>
 <form #userForm="ngForm" *ngIf="!user">
   <div class="form-component small">
     <label for="pseudo">Pseudo</label>

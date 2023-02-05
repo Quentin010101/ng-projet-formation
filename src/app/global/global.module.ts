@@ -10,6 +10,7 @@ import { IconTransitionDirective } from '../directive/icon-transition.directive'
 import { ButtonCheckComponent } from './element/button-check/button-check.component';
 import { NavigationHoverDirective } from '../directive/navigation-hover.directive';
 import { GoBackDirective } from '../directive/go-back.directive';
+import { ImageScaleDirective } from '../directive/image-scale-transition.directive';
 
 
 
@@ -22,6 +23,7 @@ import { GoBackDirective } from '../directive/go-back.directive';
     AdminNavigationBarComponent,
     ButtonCheckComponent,
     NavigationHoverDirective,
+    ImageScaleDirective,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { GoBackDirective } from '../directive/go-back.directive';
     ButtonCheckComponent,
     MatIconModule,
     GoBackDirective,
+    ImageScaleDirective,
 
   ],
   providers:[

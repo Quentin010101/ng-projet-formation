@@ -21,7 +21,6 @@ import { ImageUpdateModule } from './user/image-update/image-update.module';
 
 @NgModule({
   declarations: [
-    ImageScaleDirective,
     DashboardTemplateComponent,
     ImageFeedComponent,
     SettingsComponent,

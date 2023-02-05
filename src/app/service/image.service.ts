@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Image } from '../model/image';
 
 @Injectable({
@@ -22,15 +22,23 @@ export class ImageService {
   saveImage(data: FormData):Observable<any>{
 
       return this.http.post(this.url + "/save", data).pipe(
-        catchError((err) => {
-          console.log('error caught in service')
-          console.error(err);
- 
-          //Handle the error here
- 
-          return throwError(err);    //Rethrow it back to component
-        })
+        catchError(this.handleError)
       )
 
   }
+
+  handleError(error:any) {
+    let errorMessage = '';
+
+    if (error.error instanceof ErrorEvent) {
+      // erreur client
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // erreur serveur
+      errorMessage = `Something went wrong, Back-end return code error: ${error.status}`;
+    }
+
+    return throwError(() => {return errorMessage})
+  }
 }
+

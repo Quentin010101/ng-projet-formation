@@ -6,7 +6,7 @@
                    '/assets/avatar/default-avatar.png'" alt="user avatar">
       <div>
         <label  for="avatar"><mat-icon *ngIf="!avatarPreview">add</mat-icon></label>
-        <input id="avatar" type="file" name="avatar" (change)="onFileSelected($event)" required [ngModel]>
+        <input id="avatar" type="file" name="avatar" (change)="onFileSelected($event)" required [ngModel] accept=".jpg, .png, .jpeg .svg">
       </div>
     </div>
   </div>
@@ -18,5 +18,18 @@
       </div>
     </div>
   </div>
-  <button-check [value]="'upload'" [disabled]="!ngFormAvatar.valid"></button-check>
+  <div>
+    <button type="submit" class="button" [disabled]="!ngFormAvatar.valid">
+      <span>
+        Upload
+      </span>
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
 </form>
+<div class="validMessage" *ngIf="message">
+  {{ message }}
+  </div>
+  <div class="errorMessage" *ngIf="errorMessage">
+  {{ errorMessage }}
+  </div>

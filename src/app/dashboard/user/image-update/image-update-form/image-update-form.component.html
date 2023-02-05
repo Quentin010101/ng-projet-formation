@@ -1,10 +1,10 @@
-<form #ImageUpdateForm="ngForm" (ngSubmit)="onSubmit()">
+<form #ImageUpdateForm="ngForm" (ngSubmit)="onSubmit(ImageUpdateForm)">
   <div class="upload-container">
     <div class="up">
       <div class="upload">
         <div class="input">
-          <label for="image">{{ file? '' : 'Click to upload an image'}}</label>
-          <input type="file" name="image" id="image" #fileUpload (change)="selectFile($event)">
+          <label for="image">{{ previewSrc? '' : 'Click to upload an image'}}</label>
+          <input type="file" name="image" id="image"  #fileUpload (change)="selectFile($event)" accept=".jpg, .jpeg, .svg, .png" required>
           <div *ngIf="previewSrc" class="preview">
             <img [src]="previewSrc" alt="preview upload">
           </div>
@@ -15,14 +15,28 @@
   <div class="upload-container">
     <div class="form-component">
       <label for="title"><mat-icon> title</mat-icon>Title</label>
-      <input type="text" name="title" [(ngModel)]="title" #titleUpload placeholder="Enter the title of your image">
+      <input type="text" name="title" [(ngModel)]="title" #titleUpload="ngModel" placeholder="Enter the title of your image" required>
+      <div  class='form-error-component'>
+        <div *ngIf="titleUpload.invalid && (titleUpload.dirty)">
+          <div *ngIf="titleUpload.errors?.['required']">
+            <p>* this field is required</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="form-component">
       <label for="description">	<mat-icon>description</mat-icon>Description</label>
-      <textarea  name="description" [(ngModel)]="description" #descriptionUpload placeholder="Enter a short description for your image ..."></textarea>
+      <textarea  name="description" [(ngModel)]="description" #descriptionUpload="ngModel" placeholder="Enter a short description for your image ..." required></textarea>
+      <div  class='form-error-component'>
+        <div *ngIf="descriptionUpload.invalid && (descriptionUpload.dirty)">
+          <div *ngIf="descriptionUpload.errors?.['required']">
+            <p>* this field is required</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div>
-      <button type="submit" class="button">
+      <button type="submit" class="button" [disabled]="!ImageUpdateForm.valid">
         <span>
           Upload
         </span>
@@ -31,3 +45,9 @@
     </div>
   </div>
 </form>
+<div class="validMessage" *ngIf="message">
+  {{ message }}
+</div>
+<div class="errorMessage" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
