@@ -10,7 +10,6 @@ export class ImageScaleDirective {
   constructor(private elementRef: ElementRef) { }
 
   @HostListener('mouseenter') onMouseEnter(): void{
-    console.log("f")
 
     window.innerWidth > 1200 ? this.observe() : ''
   }

@@ -20,7 +20,7 @@ export class CategoryService {
     return this.http.get<Category[]>(this.url + "/topcategory")
   }
 
-  getCategory(id: number): Observable<Category>{
-    return this.http.get<Category>(this.url + "/category?id=" + id)
+  getCategory(type: string): Observable<Category>{
+    return this.http.get<Category>(this.url + "/category?type=" + type)
   }
 }
