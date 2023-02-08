@@ -4,6 +4,6 @@ export const environment = {
 
   title: 'Local Environment Heading',
 
-  apiURL: 'http://localhost:8080/'
+  apiURL: 'http://localhost:8080'
 
 };

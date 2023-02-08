@@ -1,11 +1,19 @@
-<div class="container" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)" [ngClass]="imagesTrending? '': 'opaque'">
-  <div *ngIf="imagesTrending" class="container-cards" >
-    <div class="container-card" (transitionend)="updateCarousel($event)">
-      <div *ngFor="let image of imagesTrending, let i = index" [attr.index]="i" class="card-opacity">
-        <div class="card">
-          <img [src]="image.imagePath" alt="{{image.title}}">
+<div class="container" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)" [ngClass]="imagesTrending? '': 'opaque'" >
+  <ng-container *ngIf="imagesTrending; else elseBlock1">
+    <div *ngIf="imagesTrending.length > 8; else elseBlock2" class="container-cards"  >
+      <div class="container-card" (transitionend)="updateCarousel($event)">
+        <div *ngFor="let image of imagesTrending, let i = index" [attr.index]="i" class="card-opacity">
+          <div class="card">
+            <img [src]="apiURL + image.imagePath" alt="{{image.title}}">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <ng-template #elseBlock2>
+      <p class="elseMessage">Not enougth images</p>
+    </ng-template>
+  </ng-container>
 </div>
+<ng-template #elseBlock1>
+  <p class="elseMessage ab">Cant load images</p>
+</ng-template>

@@ -7,9 +7,9 @@
           <div class="section" appOpacity [delay]="200">
             <h3>{{ category.type }}</h3>
             <div class="grid-container">
-              <ng-container *ngFor="let image of category.listeImage">
-                <div class="items">
-                  <img [src]="image.imagePath" alt="{{ image.title }}">
+              <ng-container *ngFor="let image of category.listeImage; let i = index">
+                <div class="items" *ngIf="i<3">
+                  <img [src]="apiURL + image.imagePath" alt="{{ image.title }}">
                 </div>
               </ng-container>
             </div>

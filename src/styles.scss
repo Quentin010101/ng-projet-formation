@@ -20,5 +20,11 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 // h2{color: $primary-400 !important}
 // h4{color: $primary-500 !important}
+.elseMessage{
+  text-align: center;
+  color: $gray-400;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
 
 

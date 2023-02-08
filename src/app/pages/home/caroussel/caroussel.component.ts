@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ImageService } from 'src/app/service/image.service';
 import { Image } from 'src/app/model/image';
+import { environment } from 'src/environments/environments';
 
 @Component({
   selector: 'app-caroussel',
@@ -9,6 +9,7 @@ import { Image } from 'src/app/model/image';
   styleUrls: ['./caroussel.component.scss']
 })
 export class CarousselComponent {
+  apiURL: String = environment.apiURL
 
   imagesTrending: Image[]
   delta: number

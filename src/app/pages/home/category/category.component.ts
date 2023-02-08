@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/model/category';
 import { CategoryService } from 'src/app/service/category.service';
+import { environment } from 'src/environments/environments';
 
 @Component({
   selector: 'app-home-category',
@@ -8,6 +9,8 @@ import { CategoryService } from 'src/app/service/category.service';
   styleUrls: ['./category.component.scss']
 })
 export class HomeCategoryComponent implements OnInit {
+  apiURL: string = environment.apiURL
+
   categories: Category[]
 
   constructor(private categoryservice: CategoryService){}
@@ -17,7 +20,6 @@ export class HomeCategoryComponent implements OnInit {
         next: (data) =>
         {
           this.categories = data
-          console.log(data)
         }
       })
   }

@@ -27,7 +27,6 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     CategoryComponent,
     FooterComponent,
-    CategoryDetailComponent,
     ContactComponent,
     CarousselComponent,
     BannerComponent,
@@ -36,6 +35,8 @@ import { RouterModule } from '@angular/router';
     ExploreComponent,
     HomeCategoryComponent,
     ContactFormComponent,
+    CategoryDetailComponent,
+
   ],
   imports: [
     GlobalModule,

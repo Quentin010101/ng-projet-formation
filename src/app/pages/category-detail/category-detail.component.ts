@@ -18,7 +18,7 @@ export class CategoryDetailComponent implements OnInit {
   ngOnInit(){
     let type = this.route.snapshot.paramMap.get('id')
     this.categoryservice.getCategory(type as string).subscribe({
-      next: (data) => {this.category = data; console.log(data)}
+      next: (data) => {this.category = data}
     })
   }
 
