@@ -35,6 +35,14 @@
         </div>
       </div>
     </div>
+    <div class="form-component">
+      <ng-container *ngFor="let category of categories">
+        <div>
+          <label for="{{ category.type }}">{{ category.type }}</label>
+          <input type="checkbox" value="{{category.type}}" id="{{ category.type }}" (change)="onCheckboxChange($event)">
+        </div>
+      </ng-container>
+    </div>
     <div>
       <button type="submit" class="button" [disabled]="!ImageUpdateForm.valid">
         <span>

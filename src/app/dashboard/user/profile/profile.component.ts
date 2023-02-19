@@ -1,4 +1,6 @@
-import { Component  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { UserDto } from 'src/app/model/userDto';
+import { UserService } from 'src/app/service/user.service';
 
 
 
@@ -7,9 +9,15 @@ import { Component  } from '@angular/core';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent{
+export class ProfileComponent implements OnInit{
+user: UserDto
 
+constructor(private _userservice: UserService){}
 
-
+  ngOnInit(){
+    this._userservice.getUser().subscribe({
+      next: (data) => this.user = data,
+    })
+  }
 
   }

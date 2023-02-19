@@ -1,9 +1,8 @@
 export const environment = {
 
-  production: false,
+  apiURL: 'http://localhost:8080',
 
-  title: 'Local Environment Heading',
-
-  apiURL: 'http://localhost:8080'
+  // Expiration session date in ms
+  timeExpiration: 600000
 
 };

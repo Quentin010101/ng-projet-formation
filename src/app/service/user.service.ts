@@ -2,26 +2,30 @@ import { HttpClient } from "@angular/common/http";
 import {  Injectable } from "@angular/core";
 import { User } from "../model/user";
 import { Observable, catchError, throwError } from 'rxjs'
+import { environment } from "src/environments/environments";
+import { UserDto } from "../model/userDto";
+import { Message } from "../model/message";
 
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: HttpClient){}
-  url: string = "http://localhost:8080/user"
 
-  getUser(id: number): Observable<User>{
-    return this.http.get<User>(this.url + "/show?id=" + id)
+  constructor(private http: HttpClient){}
+  url: string = environment.apiURL + "/user"
+
+  getUser(): Observable<UserDto>{
+    return this.http.get<UserDto>(this.url + "/show", {withCredentials: true})
   }
 
-  updateUser(user: User): Observable<User>{
-    return this.http.post<User>(this.url + "/update/user", user).pipe(
+  updateUser(user: UserDto): Observable<Message>{
+    return this.http.post<Message>(this.url + "/update/user", user, {withCredentials: true}).pipe(
       catchError(this.handleError)
     )
   }
 
-  updateAvatar(formData:FormData){
-    return this.http.post<User>(this.url + "/update/avatar", formData).pipe(
+  updateAvatar(formData:FormData): Observable<Message>{
+    return this.http.post<Message>(this.url + "/update/avatar", formData, {withCredentials: true}).pipe(
       catchError(this.handleError)
     )
   }

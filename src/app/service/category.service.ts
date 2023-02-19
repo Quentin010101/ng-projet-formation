@@ -22,4 +22,8 @@ export class CategoryService {
   getCategory(type: string): Observable<Category>{
     return this.http.get<Category>(this.url + "/category?type=" + type)
   }
+
+  getAllCategory(): Observable<Category[]>{
+    return this.http.get<Category[]>(this.url + "/categoryall")
+  }
 }

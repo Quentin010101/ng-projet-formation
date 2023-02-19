@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from 'src/app/model/auth';
 import { AuthService } from '../../service/auth.service';
 
 @Component({
@@ -7,35 +8,39 @@ import { AuthService } from '../../service/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
-  pseudo!: string;
-  password!: string;
+export class LoginComponent implements OnInit {
+
   message!: string;
+  auth: Auth
 
   constructor(private _authservice: AuthService, private router: Router) {}
 
-  onSubmit() {
-    // this._authservice.authenticate(this.pseudo, this.password).subscribe({
-    //   next: () => {
-    //     this.setMessage();
-    //     if (this._authservice.isLoggedIn.value) {
-    //       // verifie si l'utilisateur à été redirigé sur login
-    //       let redirect = this._authservice.urlLoged
-    //         ? this._authservice.urlLoged
-    //         : '/home';
-    //       this.router.navigate([redirect]);
-    //     } else {
-    //       this.password = '';
-    //     }
-    //   },
-    //   error: (error) => console.log(error),
-    // });
+  ngOnInit(): void {
+    this.auth = new Auth
   }
 
-  setMessage() {
-    // this.message = this._authservice.isLoggedIn.value
-    //   ? 'You are aleady loged in'
-    //   : 'Your credentials are not correct';
+  onSubmit() {
+    this._authservice.logIn(this.auth).subscribe({
+      next: (data) => {
+        if(data.bool){
+          this._authservice.loggedIn.next(true);
+
+          // Expiration Date
+          let now = new Date()
+
+          // Store in browser
+          localStorage.setItem('isLoggedIn', "true");
+          localStorage.setItem('expiration', now.getTime().toString());
+
+          this.router.navigate(['/dashboard/feed'])
+        }else{
+          this.message = data.message
+        }
+      },
+      error: (error) => this.message = error.message
+    })
   }
+
+
 
 }

@@ -16,11 +16,13 @@ import { BrowserModule } from '@angular/platform-browser';
 const dashboardRoutes: Routes = [
   {
     path: 'dashboard',
-    canActivate: [AuthGuardService],
+
     data: {
       role: 'ROLE_USER',
     },
+
     component: DashboardTemplateComponent,
+    canActivateChild: [AuthGuardService],
     children: [
       { path: '' , redirectTo: 'feed', pathMatch: 'full'},
       { path: 'feed', component: ImageFeedComponent },

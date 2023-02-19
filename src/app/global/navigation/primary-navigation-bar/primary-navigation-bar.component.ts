@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -7,12 +8,14 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./primary-navigation-bar.component.scss'],
 })
 export class PrimaryNavigationBarComponent implements OnInit{
+  isLogged: boolean
 
-
-  constructor(private _authService: AuthService) {}
+  constructor(private _authService: AuthService, private router: Router, public authService: AuthService) {}
 
   ngOnInit(){
-
+    this._authService.loggedIn.subscribe(
+      (data) => {this.isLogged = data}
+    )
   }
 
   logOut(){

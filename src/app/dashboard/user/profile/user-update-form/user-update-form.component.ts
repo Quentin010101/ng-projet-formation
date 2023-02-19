@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/app/model/user';
+import { UserDto } from 'src/app/model/userDto';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -9,24 +9,23 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user-update-form.component.scss']
 })
 export class UserUpdateFormComponent {
+  @Input() user: UserDto
 
   public message: string
   public errorMessage: string
 
-  user: User
 
   constructor(private _userservice: UserService){}
 
-  ngOnInit(): void {
-    this._userservice.getUser(1).subscribe({
-      next: (data) => {this.user = data},
-      error: (error) => this.errorMessage = error
-    })
-  }
-
   onSubmitUser(form: NgForm){
     this._userservice.updateUser(this.user).subscribe({
-      next: () => {this.message = "Your personnal data has been updated."},
+      next: (data) => {
+        if(data.bool){
+          this.message = data.message
+        }else{
+          this.errorMessage = data.message
+        }
+      },
       error: (error) => this.errorMessage = error
     })
 

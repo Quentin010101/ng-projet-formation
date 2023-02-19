@@ -2,12 +2,12 @@
   <div class="container">
     <div class="container-avatar section">
         <h3><mat-icon>person</mat-icon> Choose a new Avatar:</h3>
-        <app-avatar-form></app-avatar-form>
+        <app-avatar-form [user]="user"></app-avatar-form>
     </div>
     <div class="container-user section">
       <div>
         <h3><mat-icon>info</mat-icon> Personal informations:</h3>
-        <app-user-update-form></app-user-update-form>
+        <app-user-update-form  [user]="user"></app-user-update-form>
       </div>
     </div>
   </div>

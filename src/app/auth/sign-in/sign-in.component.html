@@ -10,7 +10,7 @@
         id="pseudo"
         placeholder="Choose your pseudo"
         #upseudo="ngModel"
-        [(ngModel)]="pseudo"
+        [(ngModel)]="user.pseudo"
         required
         pattern="[a-zA-Z0-9]{1,20}"
         maxlength="20"
@@ -32,7 +32,7 @@
         type="email"
         name="email"
         id="email"
-        [(ngModel)]="email"
+        [(ngModel)]="user.email"
         #uemail="ngModel"
         email="true"
         placeholder="Enter your email"
@@ -52,7 +52,7 @@
         type="password"
         name="password"
         id="password"
-        [(ngModel)]="password"
+        [(ngModel)]="user.password"
         #upassword="ngModel"
         placeholder="Choose a password"
         required

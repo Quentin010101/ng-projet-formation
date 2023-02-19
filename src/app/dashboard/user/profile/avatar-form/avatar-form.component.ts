@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { User } from 'src/app/model/user';
+import { UserDto } from 'src/app/model/userDto';
 import { UserService } from 'src/app/service/user.service';
+import { environment } from 'src/environments/environments';
 
 @Component({
   selector: 'app-avatar-form',
@@ -8,20 +10,15 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./avatar-form.component.scss']
 })
 export class AvatarFormComponent {
+  @Input() user: UserDto
+  
+  apiURL = environment.apiURL
   public message: string
   public errorMessage: string
-  public user:User
   public avatarPreview: string
   private file: File
 
   constructor(private _userService: UserService){}
-
-  ngOnInit(){
-    this._userService.getUser(1).subscribe({
-      next: (data) => this.user = data,
-      error: (error) => this.errorMessage = error
-    })
-  }
 
   onFileSelected(e: Event){
     const files: FileList | null = (e.target as HTMLInputElement).files
@@ -45,7 +42,14 @@ export class AvatarFormComponent {
     formData.append('id', this.user.userid.toString())
 
     this._userService.updateAvatar(formData).subscribe({
-      next: ()=> this.message = "Your avatar as been updated",
+      next: (data)=> {
+        if(data.bool){
+          this.message = data.message
+        }else{
+          this.errorMessage = data.message
+        }
+      }
+        ,
       error: (error) => this.errorMessage = error
     })
   }

@@ -2,7 +2,7 @@
   <div *ngIf="user">
     <div class="avatar-container">
       <img [src]="avatarPreview ? avatarPreview :
-                  user.avatarPath ? user.avatarPath :
+                  user.avatarPath ? apiURL + user.avatarPath :
                    '/assets/avatar/default-avatar.png'" alt="user avatar">
       <div>
         <label  for="avatar"><mat-icon *ngIf="!avatarPreview">add</mat-icon></label>

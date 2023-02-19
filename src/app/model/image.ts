@@ -1,3 +1,4 @@
+import { Category } from "./category"
 import { User } from "./user"
 
 export class Image{
@@ -9,4 +10,5 @@ export class Image{
   countLike: number
   user: User
   like!: number
+  categories: Category[]
 }

@@ -5,6 +5,18 @@
             <ng-container *ngFor="let image of category.listeImage">
                 <div class="item" >
                     <img [src]="apiURL + image.imagePath" alt="{{ image.title }}" imageScaleDirective>
+                    <div class="image-content">
+                      <div class="user">
+                        <div class="avatar">
+                          <img [src]="image.user.avatarPath != null ? apiURL + image.user.avatarPath : '/assets/avatar/default-avatar.png'" alt="user avatar">
+                        </div>
+                        <p>{{ image.user.pseudo}}</p>
+                      </div>
+                      <div class="like">
+                        {{image.like}}
+                        <mat-icon>thumb_up_alt</mat-icon>
+                      </div>
+                    </div>
                 </div>
             </ng-container>
         </div>
