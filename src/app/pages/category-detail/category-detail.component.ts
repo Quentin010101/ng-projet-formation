@@ -22,4 +22,17 @@ export class CategoryDetailComponent implements OnInit {
     })
   }
 
+  show(event: Event){
+    console.log("test");
+    const el = (event.target as HTMLElement).parentNode?.parentNode?.cloneNode(true) as HTMLElement
+    el.classList.add("show")
+
+    if(el){
+      document.body.appendChild(el as HTMLElement)
+      el.addEventListener('click', ()=> {
+        document.body.removeChild(el)
+      })
+    }
+  }
+
 }

@@ -21,6 +21,7 @@ export class CarousselComponent {
   ngOnInit(): void {
     this._imageservice.getTopImage().subscribe({
       next: (data) => {
+        console.log(data)
         this.imagesTrending = data
       }
     })

@@ -45,7 +45,7 @@
   }
 }
 
-.image-content{
+.item:not(.show) .image-content{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -90,6 +90,81 @@
     }
   }
 }
+.appear{
+  display: none;
+}
+
+.item.show{
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.9);
+
+  .appear{
+    display: block;
+  }
+
+  .itemAbsolute{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+    align-items: center;
+
+    >img {
+      max-width: 50%;
+      max-height: 90%
+    }
+
+    .image-content{
+      font-size: 1.05rem;
+      width: 30vw;
+
+      .user{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      hr{
+        margin: 2rem 20%;
+      }
+      p{
+        font-weight: 500;
+        color: $gray-600;
+      }
+      .like{
+        margin: 0.5rem;
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        color: $gray-800;
+        mat-icon{
+          font-size: 18px;
+        }
+      }
+      .avatar{
+        width:50px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: solid $gray-800 2px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    }
+  }
+
+}
 @media (max-width: 1000px) {
   .image-list {
     padding: 2rem;
@@ -104,6 +179,17 @@
 @media (max-width: 800px) {
   .container {
     padding: 1.5rem 0rem;
+  }
+  .itemAbsolute{
+    flex-direction: column;
+
+    >img{
+      max-height: 50% !important;
+      max-width: 90% !important;
+    }
+    .image-content{
+      width: 90vw !important;
+    }
   }
 }
 @media (max-width: 600px) {

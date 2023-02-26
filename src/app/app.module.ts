@@ -17,6 +17,11 @@ import { ProfileModule } from './dashboard/user/profile/profile.module';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { AuthService } from './service/auth.service';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 function initializeAppFactory(httpClient: HttpClient, auth: AuthService): () => Observable<any> {
   let apiURL = environment.apiURL
@@ -49,6 +54,11 @@ function initializeAppFactory(httpClient: HttpClient, auth: AuthService): () => 
     ProfileModule,
     MatIconModule,
     HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
 
   ],
   providers: [

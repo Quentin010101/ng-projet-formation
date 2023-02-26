@@ -8,13 +8,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $gray-25;
+    background-color: $primary-25;
     gap: 2rem;
 
     h3, h4{
       margin: 0;
       max-width: 45%;
       text-align: center;
+      span{
+        font-size: 1.1em;
+        color: $primary-300;
+        font-weight: 500;
+      }
     }
 
     a {

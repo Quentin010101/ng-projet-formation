@@ -5,9 +5,7 @@ import {
   CanActivateChild,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { AuthService } from '../service/auth.service';
 
@@ -19,6 +17,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot
   ):boolean{
     if (this.isLoggedIn()) {
+      this._authservice.reset()
       return true;
     }
     // navigate to login page as user is not authenticated
@@ -31,6 +30,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot
   ): boolean {
     if (this.isLoggedIn()) {
+      this._authservice.reset()
       return true;
     }
     // navigate to login page as user is not authenticated
@@ -49,6 +49,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     ) {
       status = true;
     } else {
+      this._authservice.loggedIn.next(false)
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('date');
       status = false;

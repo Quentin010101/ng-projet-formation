@@ -43,6 +43,39 @@ form{
   }
 
 }
+.tag-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
+
+  .tag{
+    position: relative;
+
+    label{
+      overflow: hidden;
+      border-radius: 0.75rem;
+      border: solid $gray-300 1px;
+      padding: 0.5rem;
+      color: $gray-300;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+     input:checked ~ label{
+      color: $gray-500;
+      border: solid $gray-500 1px;
+      background-color: $gray-50;
+    }
+
+    input[type="checkbox"]{
+      position:absolute;
+      visibility: hidden;
+      z-index: -1;
+    }
+
+  }
+
+}
 
 .upload{
   position: relative;

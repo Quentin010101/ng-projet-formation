@@ -1,4 +1,19 @@
-<div>
-  <p>message works!</p>
-
+<div class="container">
+  <div class="message-container cont1">
+    <h3><mat-icon>mail</mat-icon> Send message:</h3>
+    <app-message-form></app-message-form>
+  </div>
+  <div class="message-container">
+    <h3><mat-icon>mail</mat-icon> Message recieved:</h3>
+    <div>
+      <ng-container *ngIf="messages && messages.length > 0 else elseBlock">
+        <ng-container *ngFor="let message of messages">
+          <app-read-message-form [message]="message"></app-read-message-form>
+        </ng-container>
+      </ng-container>
+      <ng-template #elseBlock>
+        <h4>No messages recieved</h4>
+      </ng-template>
+    </div>
+  </div>
 </div>

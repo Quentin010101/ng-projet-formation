@@ -1,8 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
-import { CategoryService } from 'src/app/service/category.service';
 import { ImageService } from 'src/app/service/image.service';
-import { UserService } from 'src/app/service/user.service';
-import { interval, Observable } from 'rxjs'
+
 
 @Component({
   selector: 'app-banner',
@@ -19,18 +17,17 @@ export class BannerComponent {
   images: number
   category: number
 
-  constructor(private el : ElementRef, private _categoriesService: CategoryService, private _userService: UserService, private _imageService: ImageService){}
+  constructor(private el : ElementRef, private _imageService: ImageService){}
 
   ngOnInit(){
-    // this._categoriesService.getCategories().subscribe({
-    //   next: data => { this.category = data.length}
-    // })
-    // this._imageService.getImages().subscribe({
-    //   next: data => { this.images = data.length}
-    // })
-    // this._userService.getUsers().subscribe({
-    //   next: data => { this.users = data.length}
-    // })
+    this._imageService.getHomePageCount().subscribe({
+      next: (data) => {
+        this.users = data.nbUsers
+        this.category = data.nbCategories
+        this.images = data.nbImages
+      }
+    })
+
   }
 
   ngAfterViewInit(){

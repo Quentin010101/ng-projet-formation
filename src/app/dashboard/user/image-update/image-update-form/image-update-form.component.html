@@ -35,11 +35,11 @@
         </div>
       </div>
     </div>
-    <div class="form-component">
+    <div class="form-component tag-container">
       <ng-container *ngFor="let category of categories">
-        <div>
-          <label for="{{ category.type }}">{{ category.type }}</label>
-          <input type="checkbox" value="{{category.type}}" id="{{ category.type }}" (change)="onCheckboxChange($event)">
+        <div class="tag">
+          <input type="checkbox" value="{{category.categoryid}}" id="{{ category.categoryid }}" (change)="onCheckboxChange($event)">
+          <label for="{{ category.categoryid }}">{{ category.type }}</label>
         </div>
       </ng-container>
     </div>

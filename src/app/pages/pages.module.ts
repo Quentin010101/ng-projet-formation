@@ -16,6 +16,7 @@ import { ExploreComponent } from './home/explore/explore.component';
 import { HomeCategoryComponent } from './home/category/category.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { RouterModule } from '@angular/router';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
@@ -43,6 +44,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     PagesRoutingModule,
     RouterModule,
+    MatSlideToggleModule,
   ]
 })
 export class PagesModule { }

@@ -1,4 +1,5 @@
 import { Category } from "./category"
+import { ImageUserLike } from "./image-user-like"
 import { User } from "./user"
 
 export class Image{
@@ -9,6 +10,6 @@ export class Image{
   description!: string
   countLike: number
   user: User
-  like!: number
+  like!: ImageUserLike[]
   categories: Category[]
 }

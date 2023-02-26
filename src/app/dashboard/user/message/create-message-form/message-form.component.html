@@ -1,0 +1,33 @@
+<form #ngForm="ngForm" (ngSubmit)="onSubmit(ngForm)">
+  <div class="form-component">
+    <label for="pseudo">Pseudo:</label>
+    <input type="text" name="pseudo" id="pseudo" placeholder="Enter the pseudo" [(ngModel)]="message.pseudoReciever" #pseudo="ngModel" required>
+    <div  class='form-error-component'>
+      <div *ngIf="pseudo.invalid && (pseudo.dirty)">
+        <div *ngIf="pseudo.errors?.['required']">
+          <p>* this field is required</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-component">
+    <label for="">Message:</label>
+    <textarea name="text" cols="30" rows="10" placeholder="Enter your message" [(ngModel)]="message.text" #text="ngModel" required></textarea>
+    <div  class='form-error-component'>
+      <div *ngIf="text.invalid && (text.dirty)">
+        <div *ngIf="text.errors?.['required']">
+          <p>* this field is required</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="button" [disabled]="!ngForm.valid">Send <mat-icon>send</mat-icon></button>
+  </div>
+</form>
+<div class="validMessage" *ngIf="successMessage">
+  {{ successMessage }}
+</div>
+<div class="errorMessage" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>

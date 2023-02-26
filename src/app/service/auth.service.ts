@@ -42,6 +42,11 @@ export class AuthService {
     this.http.get(this.url + "/logout", {withCredentials: true}).subscribe()
   }
 
+  reset(){
+    let now = new Date()
+    localStorage.setItem('expiration', now.getTime().toString())
+  }
+
 
   handleError(error:any) {
     let errorMessage = '';

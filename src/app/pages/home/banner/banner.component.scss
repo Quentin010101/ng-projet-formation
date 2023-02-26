@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  background-color: $gray-25;
+  background-color: $primary-25;
   padding: 5rem;
 
   >div{
@@ -27,13 +27,13 @@
       font-weight: 500;
 
       span{
-        color: $gray-400;
+        color: $primary-400;
         font-weight: 800;
       }
     }
 
     mat-icon{
-      color: $gray-400;
+      color: $primary-400;
       transform: scale(1.8);
     }
   }

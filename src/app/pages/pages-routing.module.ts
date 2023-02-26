@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppGuardService } from '../app-guard.service';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
@@ -8,7 +9,7 @@ import { TemplateComponent } from './template/template.component';
 
 const pagesRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: '', component: TemplateComponent, children: [
+  {path: '', component: TemplateComponent, canActivateChild:[AppGuardService], children: [
     {path: 'home', component: HomeComponent},
     {path: 'category', component: CategoryComponent},
     {path: 'category/:id', component: CategoryDetailComponent},

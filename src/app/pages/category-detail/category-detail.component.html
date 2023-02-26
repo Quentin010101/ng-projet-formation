@@ -3,7 +3,8 @@
         <h2>Category <span>{{ category.type }}</span></h2>
         <div class="image-list">
             <ng-container *ngFor="let image of category.listeImage">
-                <div class="item" >
+                <div class="item" (click)="show($event)">
+                  <div class="itemAbsolute">
                     <img [src]="apiURL + image.imagePath" alt="{{ image.title }}" imageScaleDirective>
                     <div class="image-content">
                       <div class="user">
@@ -12,11 +13,18 @@
                         </div>
                         <p>{{ image.user.pseudo}}</p>
                       </div>
+                      <div class="appear">
+                        <hr>
+                        <p>{{ image.title }}</p>
+                        <p>{{ image.description }}</p>
+                        <hr>
+                      </div>
                       <div class="like">
-                        {{image.like}}
+                        {{image.like.length}}
                         <mat-icon>thumb_up_alt</mat-icon>
                       </div>
                     </div>
+                  </div>
                 </div>
             </ng-container>
         </div>

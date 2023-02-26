@@ -17,7 +17,7 @@ export class ImageFeedComponent implements OnInit{
 
   ngOnInit(){
     this.imageservice.getFeed().subscribe({
-      next: data => {this.userImages = data; console.log(data)}
+      next: data => {this.userImages = data}
     })
   }
 }

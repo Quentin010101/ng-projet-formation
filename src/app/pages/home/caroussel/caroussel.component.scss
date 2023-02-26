@@ -77,8 +77,8 @@
     ::before{
       content: url('/assets/utils/gold.png');
       position:absolute;
-      top: -3%;
-      right: -3%;
+      top: -10%;
+      right: -6%;
     }
   }
   [index="3"] {
@@ -87,8 +87,8 @@
     ::before{
       content: url('/assets/utils/silver.png');
       position:absolute;
-      top: -3%;
-      right: -3%;
+      top: -10%;
+      right: -6%;
     }
   }
   [index="5"] {
@@ -97,8 +97,8 @@
     ::before{
       content: url('/assets/utils/bronze.png');
       position:absolute;
-      top: -3%;
-      right: -3%;
+      top: -10%;
+      right: -6%;
     }
   }
 }

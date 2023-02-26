@@ -1,3 +1,5 @@
+@import 'color.scss';
+
 .container{
   display: flex;
   flex-direction: row;
@@ -6,5 +8,10 @@
 
   .section{
     padding:1rem;
+  }
+  span{
+    font-size: 1.1em;
+    font-weight: 500;
+    color: $primary-500
   }
 }

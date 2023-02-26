@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from 'src/app/model/user';
 import { UserDto } from 'src/app/model/userDto';
 import { UserService } from 'src/app/service/user.service';
@@ -11,7 +12,7 @@ import { environment } from 'src/environments/environments';
 })
 export class AvatarFormComponent {
   @Input() user: UserDto
-  
+
   apiURL = environment.apiURL
   public message: string
   public errorMessage: string
@@ -33,7 +34,7 @@ export class AvatarFormComponent {
 
   }
 
-  onSubmitAvatar(){
+  onSubmitAvatar(form: NgForm){
     this.errorMessage =''
     this.message = ''
 
@@ -45,6 +46,7 @@ export class AvatarFormComponent {
       next: (data)=> {
         if(data.bool){
           this.message = data.message
+          form.reset()
         }else{
           this.errorMessage = data.message
         }

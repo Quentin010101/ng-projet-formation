@@ -1,13 +1,20 @@
 <div class="container" >
+  <ng-container *ngIf="userImages && userImages.length > 0; else elseBlock">
   <div class="images-container" >
     <div *ngFor="let image of userImages" class="card" imageScaleDirective>
       <div class="image-container">
         <img [src]="apiURL + image.imagePath" alt="{{ image.title }}">
         <div class="image-content">
-          {{ image.like }}
+          {{ image.like.length }}
           <mat-icon>thumb_up_alt</mat-icon>
         </div>
       </div>
     </div>
   </div>
+</ng-container>
+<ng-template #elseBlock>
+  <div class="elseMessage">
+    <h4>Upload images to fill your account!</h4>
+  </div>
+</ng-template>
 </div>

@@ -50,7 +50,7 @@
     </div>
   </div>
   <div>
-    <button type="submit" class="button" [disabled]="!userForm.valid">
+    <button type="submit" class="button" [disabled]="!userForm.valid || !userForm.dirty">
       <span>
         Upload
       </span>

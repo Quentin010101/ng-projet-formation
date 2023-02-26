@@ -1,0 +1,13 @@
+<div class="container" *ngIf="showComponent">
+  <div class="item">
+      <h5><span>{{ message.pseudoSender }}</span><span>{{message.date | date:'dd/MM/yyyy'}} à {{message.date | date:'HH:mm'}}</span> </h5>
+      <p>{{ message.text }}</p>
+  </div>
+  <div class="delete">
+    <form (ngSubmit)="delete()">
+    <button type="submit">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </form>
+  </div>
+</div>

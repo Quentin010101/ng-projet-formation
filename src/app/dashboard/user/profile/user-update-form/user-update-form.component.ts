@@ -22,6 +22,7 @@ export class UserUpdateFormComponent {
       next: (data) => {
         if(data.bool){
           this.message = data.message
+          form.reset({pseudo: this.user.pseudo, email: this.user.email, name: this.user.name, surname: this.user.surname, country: this.user.country})
         }else{
           this.errorMessage = data.message
         }
